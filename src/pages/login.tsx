@@ -7,6 +7,7 @@ import { Dimensions, FlatList, Image, StyleSheet, Text, TextInput, TouchableOpac
 import Icon from 'react-native-vector-icons/FontAwesome';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import api from '../utils/api';
+import colors from '../utils/colors';
 import Layout from './layout';
 const { width } = Dimensions.get('screen');
 
@@ -70,6 +71,11 @@ export default function Login() {
                     <View style={styles.content}>
                         <Text style={styles.title}>Visor O.N.I.X</Text>
                         <Text style={styles.password}>{value}</Text>
+                        <TouchableOpacity style={{ backgroundColor: colors.primary, padding: 5, borderRadius: 7 }} onPress={() => navigation.navigate("Docs")}>
+                            <Text style={{ color: "#FFF", fontWeight: "bold" }}>
+                                Documentação
+                            </Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <View style={styles.keyboard}>

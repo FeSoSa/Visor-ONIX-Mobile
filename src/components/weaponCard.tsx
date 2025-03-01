@@ -3,29 +3,62 @@
 import React from 'react';
 import { Dimensions, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Popover from 'react-native-popover-view';
-import { IPlayer } from '../../typing.d.ts';
+import { IGame, IPlayer } from '../../typing.d.ts';
+import api from '../utils/api.tsx';
 import constants from '../utils/constants.tsx';
 
 interface WeaponProps {
     type: 'primary' | 'secondary';
     player: IPlayer;
+    game: IGame
 }
 const { width, height } = Dimensions.get("screen");
 export default function WeaponCard({
     type,
-    player
+    player,
+    game
 }: WeaponProps) {
 
     const weapon = player.guns[type]
     const magazines = player.magazines[type]
     const magazineIndex = weapon.magazineSelected
 
+    function changeMagazine(index: number) {
+        if (magazineIndex !== index && !game.combat) {
+            const updatedPlayer = {
+                ...player,
+                guns: {
+                    ...player.guns,
+                    [type]: {
+                        ...player.guns[type],
+                        magazineSelected: index
+                    }
+                }
+            };
+
+            api.post("player/save", updatedPlayer)
+        }
+    }
+
+    function changeWeapon() {
+        if (player.gunSelected != type && !game.combat) {
+            const updatedPlayer = {
+                ...player,
+                gunSelected: type
+            };
+            api.post("player/save", updatedPlayer)
+        }
+    }
+
     return (
         <>
             <View style={styles.grid}>
-                <Popover from={(
-                    <TouchableOpacity >
-                        <View style={styles.imageContainer}>
+                <Popover from={(sourceRef, showPopover) => (
+                    <TouchableOpacity onPress={changeWeapon} onLongPress={showPopover} >
+                        <View style={[
+                            styles.imageContainer,
+                            { backgroundColor: player.gunSelected == type ? 'rgba(21, 128, 61,0.5)' : '' }
+                        ]} >
                             <Image
                                 source={{ uri: `${constants.driveURL}${weapon.url}` }}
                                 style={styles.weaponImage}
@@ -53,19 +86,17 @@ export default function WeaponCard({
                                     style={[
                                         styles.magazineItem,
                                         {
-                                            backgroundColor: index === magazineIndex ? '#15803d' : '#22c55e',
                                             height: type === 'secondary' ? 80 : 40,
-                                            justifyContent: 'flex-end', // Alinha o preenchimento para baixo
-                                            overflow: 'hidden',
+                                            backgroundColor: item.bullets > 0 ? '#000' : '#9F0712'
                                         }
                                     ]}
-                                    key={index}
+                                    onPress={() => changeMagazine(index)}
                                 >
                                     <View
                                         style={{
                                             width: '100%',
+                                            backgroundColor: index === magazineIndex ? '#15803d' : '#22c55e',
                                             height: `${fillPercentage * 100}%`, // Define a altura proporcional
-                                            backgroundColor: 'rgba(0, 0, 0, 0.5)', // Cor para indicar a carga
                                             position: 'absolute',
                                             bottom: 0,
                                         }}
@@ -128,7 +159,6 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap'
     },
     magazineItem: {
-        padding: 10,
         borderWidth: 1,
         borderColor: '#333',
         justifyContent: 'center',

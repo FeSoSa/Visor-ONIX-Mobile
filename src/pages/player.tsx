@@ -3,8 +3,10 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import { Dimensions, StyleSheet, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { IGame, IPlayer } from '../../typing.d.ts';
+import InfoTab from '../components/tabs/infoTab.tsx';
 import MapTab from '../components/tabs/mapTab.tsx';
 import PlayerTab from '../components/tabs/playerTab.tsx';
+import SettingTab from '../components/tabs/settingTab.tsx';
 import api from '../utils/api';
 import colors from '../utils/colors';
 import { useWebSocket } from '../utils/ws.js';
@@ -31,7 +33,7 @@ export default function Player() {
                 if (obj.event === "player-updated") {
                     getPlayer(registry);
                 }
-                else if (message.event === "game-updated") {
+                else if (obj.event === "game-updated") {
                     getGame();
                 }
             } catch (e) {
@@ -45,8 +47,8 @@ export default function Player() {
         //second: <Second game={game!} />,
         map: <MapTab game={game!} />,
         player: <PlayerTab game={game!} player={player!} />,
-        // rules: <RulesTab />, // Substitua pelo conteúdo de "Enemies"
-        //  settings: <ConfigTab />, // Substitua pelo conteúdo de "Items"
+        rules: <InfoTab />, // Substitua pelo conteúdo de "Enemies"
+        settings: <SettingTab game={game!} player={player!} />, // Substitua pelo conteúdo de "Items"
     };
 
     useEffect(() => {

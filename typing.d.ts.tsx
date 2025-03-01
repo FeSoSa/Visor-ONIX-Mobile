@@ -90,10 +90,11 @@ export interface OperatorData {
 export interface IGame {
     draw?: string[];
     combat: boolean
-    mapComplete: string
-    mapIncomplete: string
     showCompleteMap: boolean
-    view?: string
+    dbImages: any[]
+    ruinedMap: string
+    completeMap: string
+    others: any[]
 }
 export interface IViews {
     image: string,

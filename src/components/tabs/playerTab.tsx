@@ -15,7 +15,6 @@ interface PlayerProps {
 const { width, height } = Dimensions.get("screen");
 export default function PlayerTab({ game, player }: PlayerProps) {
 
-
     return (
         <View style={styles.container}>
             <View style={{ flex: 1, backgroundColor: "#000", padding: 10 }}>
@@ -46,11 +45,11 @@ export default function PlayerTab({ game, player }: PlayerProps) {
             </View>
 
             <View style={{ flex: 2 }}>
-                <WeaponCard type="primary" player={player} />
-                <WeaponCard type="secondary" player={player} />
+                <WeaponCard type="primary" player={player} game={game} />
+                <WeaponCard type="secondary" player={player} game={game} />
             </View >
 
-            <View style={{ flex: 2 }}>
+            <View style={{ flex: 2, borderLeftWidth: 6 }}>
                 {/* Itens do jogador */}
                 <FlatList
                     scrollEnabled={false}
