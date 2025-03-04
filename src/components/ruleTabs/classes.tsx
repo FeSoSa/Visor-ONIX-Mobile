@@ -98,6 +98,9 @@ export default function ClassTab() {
                                 <Text style={styles.list}>
                                     • Adrenalina: Ao atingir um valor natural de +18 em dois turnos consecutivos, o próximo ataque é crítico automaticamente.
                                 </Text>
+                                <Text style={styles.list}>
+                                    • Ainda não: Em estado quase morte, consegue se levantar sozinho e todas suas habilidades são recarregadas. Utilizavel uma única vez no jogo, após uso o operador desmaia.
+                                </Text>
                                 <Text style={styles.subItem}>
                                     Equipamento Inicial
                                 </Text>
@@ -161,6 +164,9 @@ export default function ClassTab() {
                                 </Text>
                                 <Text style={styles.list}>
                                     • Olhos de Águia: Garante +1 na rolagem ao mirar em alvos a mais de 100 metros de distância.
+                                </Text>
+                                <Text style={styles.list}>
+                                    • Astuto: Consegue trocar de arma sem gastar movimentos.
                                 </Text>
                                 <Text style={styles.subItem}>
                                     Equipamento Inicial
@@ -230,7 +236,7 @@ export default function ClassTab() {
                                     Equipamento Inicial
                                 </Text>
                                 <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Arma Primária:</Text> Submetralhadora Pesada M60 ou submetralhadora
+                                    • <Text style={styles.bold}>Arma Primária:</Text> Submetralhadoras KRISS Vector ou Uzi
                                 </Text>
                                 <Text style={styles.list}>
                                     • <Text style={styles.bold}>Arma Secundária:</Text> Pistola Glock
@@ -310,7 +316,7 @@ export default function ClassTab() {
                                 </Text>
                             </View>
                         </View>
-                        {//! --------------------------------- <Text style={styles.bold}>Inteligência</Text> --------------------------------
+                        {//! --------------------------------- >Inteligência --------------------------------
                         }
                         <View style={styles.box} ref={sectionRefs.sec5}>
                             <Text style={styles.subTitle}>

@@ -31,6 +31,7 @@ export default function PlayerTab({ game, player }: PlayerProps) {
                     <Text style={{ color: "#FFF", fontWeight: "bold", textAlign: "center", fontSize: 18 }}>{player.name}</Text>
                     <Text style={{ color: "#FFF", textAlign: "center", fontSize: 12 }}>Codinome: <Text style={styles.boldText}>{player.codename}</Text></Text>
                     <Text style={{ color: "#FFF", textAlign: "center", fontSize: 12 }}>Registro: <Text style={styles.boldText}>{player.registry}</Text></Text>
+                    <Text style={{ color: "#FFF", textAlign: "center", fontSize: 12 }}><Text style={styles.boldText}>{player.armor?.name}</Text></Text>
 
                     <Bar max={player.maxHp} current={player.hp} color='#FF6347' label='HP' />
                     <Bar max={player.armor.maxHp} current={player.armor.hp} color='#155DFC' label='AP' />
@@ -58,7 +59,7 @@ export default function PlayerTab({ game, player }: PlayerProps) {
                     keyExtractor={(item, index) => index.toString()} // Define a chave corretamente
                     renderItem={({ item }) => (
                         <Popover from={(
-                            <TouchableOpacity style={styles.itemContainer}>
+                            <TouchableOpacity style={[styles.itemContainer, item.reloading == true ? { backgroundColor: '#9F0712' } : { backgroundColor: '#333' }]}>
                                 <View style={styles.itemQuantity}>
                                     <Text style={styles.itemQuantityText}>{item.quantity}</Text>
                                 </View>

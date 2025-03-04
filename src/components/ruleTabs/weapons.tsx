@@ -17,6 +17,7 @@ export default function WeaponTab() {
         sec9: useRef<View>(null),
         sec10: useRef<View>(null),
         sec11: useRef<View>(null),
+        sec12: useRef<View>(null),
     };
 
     const scrollToSection = (section: keyof typeof sectionRefs) => {
@@ -57,6 +58,11 @@ export default function WeaponTab() {
                         style={styles.aside}
                         onPress={() => scrollToSection('sec6')}>
                         <Text style={styles.asideText}>MP5 / Uzi</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.aside}
+                        onPress={() => scrollToSection('sec12')}>
+                        <Text style={styles.asideText}>KRISS Vector</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.aside}
@@ -239,6 +245,7 @@ export default function WeaponTab() {
                                     ['Penetração', 'Média'],
                                     ['Capacidade do Cartucho', '24 balas'],
                                     ['Disparo', 'Automático '],
+                                    ['Modificador (AK-47)', '+1 '],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -274,6 +281,33 @@ export default function WeaponTab() {
                                 ))}
                             </View>
                         </View>
+                        {//! --------------------------------- KRISS Vector --------------------------------
+                        }
+                        <View ref={sectionRefs.sec12} style={{ marginBottom: 15 }}>
+                            <View >
+                                <Text style={styles.center}>KRISS Vector (Submetralhadora)</Text>
+                            </View>
+                            <View style={styles.container}>
+                                {/* Cabeçalho da Tabela */}
+                                <View style={[styles.rowTable, styles.header]}>
+                                    <Text style={styles.cell}>Atributo</Text>
+                                    <Text style={styles.cell}>Valor</Text>
+                                </View>
+                                {[
+                                    ['Tipo de Munição', 'Calibre Pequeno'],
+                                    ['Penetração', 'Média'],
+                                    ['Capacidade do Cartucho', '25 balas'],
+                                    ['Disparo', 'Automático '],
+                                    ['Modificador', '+1 '],
+                                ].map((row, index) => (
+                                    <View key={index} style={styles.rowTable}>
+                                        {row.map((cell, i) => (
+                                            <Text key={i} style={[styles.cell]}>{cell}</Text>
+                                        ))}
+                                    </View>
+                                ))}
+                            </View>
+                        </View>
                         {//! --------------------------------- MP5 --------------------------------
                         }
                         <View ref={sectionRefs.sec6} style={{ marginBottom: 15 }}>
@@ -291,6 +325,7 @@ export default function WeaponTab() {
                                     ['Penetração', 'Baixa'],
                                     ['Capacidade do Cartucho', '30 balas'],
                                     ['Disparo', 'Automático '],
+                                    ['Modificador (Uzi)', '-1 '],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (

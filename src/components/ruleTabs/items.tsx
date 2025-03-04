@@ -85,6 +85,7 @@ export default function ItemsTab() {
                                     ['Alimento', 'Recupera 1D6 pontos de vida.'],
                                     ['Kit Médico', 'Recupera 20 pontos de vida.'],
                                     ['Analgésico', 'Reduz o dano recebido em 50% por 3 turnos.'],
+                                    ['Injeção de adrenalina', 'Aumenta +1 na rolagem de algum aliado por 2 turnos. 1 vez por combate'],
                                     ['Bandagem', 'Recupera 1D10 pontos de vida.'],
                                     ['Binóculos', 'Permite enxergar longas distâncias.'],
                                     ['Caixa de Munição', 'Recarrega até 6 cartuchos vazios fora de combate.'],

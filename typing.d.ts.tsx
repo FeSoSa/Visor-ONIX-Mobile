@@ -33,6 +33,7 @@ export interface Armor {
     hp: number;
     maxHp: number;
     slots: number;
+    name: string
 }
 export interface Guns {
     primary: Gun
@@ -53,9 +54,10 @@ export interface Item {
     desc?: string;
     quantity: number;
     usable: boolean
-    rechargeable?: boolean,
-    after?: number,
-    type: "gadget" | "item";
+    type: "item" | "grenade";
+    reloading?: boolean
+    rechargeable?: boolean;
+    value?: number
 }
 export type PlayerClass = 'sniper' | 'assault' | 'engeneer' | 'medic' | 'inteligence';
 export interface IPlayer {
