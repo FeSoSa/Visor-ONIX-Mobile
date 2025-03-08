@@ -3,8 +3,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { Dimensions, FlatList, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { Alert, Dimensions, FlatList, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import api from '../utils/api';
 import colors from '../utils/colors';
@@ -43,8 +43,8 @@ export default function Login() {
                     navigation.navigate("Players");
                 }
             }
-        } catch (error) {
-            console.error(error)
+        } catch (error: any) {
+            Alert.alert("Erro", error?.response?.data?.message || error?.message || "Erro desconhecido");
         }
     };
 
@@ -87,7 +87,7 @@ export default function Login() {
                                         size={35}
                                         color="#FFF" />
                                     : item == "signIn"
-                                        ? <Icon name="sign-in" size={35} color='#FFF' />
+                                        ? <FontAwesome5 name="sign-in-alt" size={35} color='#FFF' />
                                         : <Text style={{ color: "#FFF", fontWeight: "bold", fontSize: 20 }}>{item}</Text>
                             }
                         </TouchableOpacity>

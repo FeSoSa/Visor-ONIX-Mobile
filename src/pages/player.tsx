@@ -1,7 +1,8 @@
 import { useRoute } from '@react-navigation/native';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { Dimensions, StyleSheet, TouchableOpacity, View } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import { IGame, IPlayer } from '../../typing.d.ts';
 import InfoTab from '../components/tabs/infoTab.tsx';
 import MapTab from '../components/tabs/mapTab.tsx';
@@ -88,22 +89,22 @@ export default function Player() {
                     <TouchableOpacity
                         style={[{ backgroundColor: "#FE9A00" }, styles.icon]}
                         onPress={() => setMenu('map')}>
-                        <Icon name="map" size={50} color='#FFF' />
+                        <FontAwesome5 name="map-marked-alt" size={50} color='#FFF' />
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={[{ backgroundColor: "#5EA500" }, styles.icon]}
                         onPress={() => setMenu('player')}>
-                        <Icon name="user" size={50} color='#FFF' />
+                        <FontAwesome5 name="user-alt" size={50} color='#FFF' />
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={[{ backgroundColor: "#0092B8" }, styles.icon]}
                         onPress={() => setMenu('rules')}>
-                        <Icon name="book" size={50} color='#FFF' />
+                        <FontAwesome5 name="book" size={50} color='#FFF' />
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={[{ backgroundColor: "#525252" }, styles.icon]}
                         onPress={() => setMenu('settings')}>
-                        <Icon name="gear" size={50} color='#FFF' />
+                        <FontAwesome6 name="gear" size={50} color='#FFF' />
                     </TouchableOpacity>
                 </View>
                 <View style={{ flex: 1 }}>

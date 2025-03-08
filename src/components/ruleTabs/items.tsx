@@ -59,7 +59,8 @@ export default function ItemsTab() {
                                     ['Granada Explosiva', 'Dano explosivo', '1D20', '5 - 10m', 'Causa dano explosivo em área, afeta personagens na área de impacto.'],
                                     ['Granada de Fumaça', 'Ocultação', 'Nenhum', 'Até 10m', 'Cria uma nuvem de fumaça que obscurece a visão, útil para coberturas rápidas.'],
                                     ['Granada Flashbang', 'Cegueira', 'Nenhum', 'Até 4m', 'Causa cegueira temporária e desorientação nos inimigos próximos.'],
-                                    ['Granada Sonora', 'Distração', 'Nenhum', '10m - 15m', 'Causa distrações sonoras no ambiente'],
+                                    ['Granada Sonora', 'Distração', 'Nenhum', '10m - 15m', 'Causa distrações sonoras no ambiente.'],
+                                    ['Granada incendiária', 'Dano flamejante', '2D6', 'Até 6m', 'Causa dano flamejante em área, afeta personagens na área de impacto.'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (

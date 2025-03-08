@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dimensions, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Popover from 'react-native-popover-view';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import { IGame, IPlayer } from '../../../typing.d.ts';
 import colors from '../../utils/colors.tsx';
 import constants from '../../utils/constants.tsx';

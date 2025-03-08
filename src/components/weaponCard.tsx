@@ -71,6 +71,7 @@ export default function WeaponCard({
                         <Text style={styles.weaponName}>{weapon.name}</Text>
                         <Text style={styles.weaponType}>Tipo: {weapon.type}</Text>
                         <Text style={styles.weaponCapacity}>Capacidade: {weapon.capacity}</Text>
+                        <Text style={styles.weaponCapacity}>Modificador: {weapon.mod}</Text>
                     </View>
                 </Popover>
 

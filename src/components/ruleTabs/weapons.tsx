@@ -348,8 +348,8 @@ export default function WeaponTab() {
                                     <Text style={styles.cell}>Valor</Text>
                                 </View>
                                 {[
-                                    ['Tipo de Munição', 'Calibre Pequeno'],
-                                    ['Penetração', 'Baixa'],
+                                    ['Tipo de Munição', 'Calibre Médio'],
+                                    ['Penetração', 'Média'],
                                     ['Capacidade do Cartucho', '80 balas'],
                                     ['Disparo', 'Automático '],
                                 ].map((row, index) => (
