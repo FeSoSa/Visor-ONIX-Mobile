@@ -12,25 +12,40 @@ export default function RuleTab() {
                 <View style={styles.box}>
                     <Text style={styles.subTitle}>Sistema de Jogo</Text>
                     <Text style={styles.text}>
-                        A Operação Sunstrike utiliza um sistema de jogo baseado em rolagens de dados e tomadas de decisão estratégicas. Abaixo estão os fundamentos
+                        As Operações ONIX utilizam um sistema de jogo baseado em rolagens de dados e tomadas de decisão estratégicas. Abaixo estão os fundamentos
                     </Text>
                 </View>
                 <View style={styles.box}>
                     <Text style={styles.subTitle}>Ações e Testes</Text>
                     <Text style={styles.text}>
-                        Os jogadores realizam testes de habilidades com rolagens de dados (D20) somadas às habilidades do personagem (Definidas desde o começo). Resultados iguais ou maiores que o número-alvo determinado pelo mestre indicam sucesso
+                        Os jogadores realizam testes de habilidades com rolagens de dados (D20). Resultados iguais ou maiores que o número-alvo determinado pelo mestre indicam sucesso
                     </Text>
                 </View>
                 <View style={styles.box}>
                     <Text style={styles.subTitle}>Sistema de Precisão</Text>
                     <Text style={styles.text}>
-                        Para realizar um ataque, o jogador rola um <Text style={styles.bold}>D20</Text> e soma o valor da <Text style={styles.bold}>habilidade de Mira</Text>. O resultado define quantos tiros acertaram o alvo e se foram fatais ou não. Modificadores podem ser aplicados dependendo de fatores como <Text style={styles.bold}>distância, cobertura ou visibilidade</Text>. A <Text style={styles.bold}>penetração de armadura</Text> vai depender do tipo de arma utilizada.
+                        Para realizar um ataque, o jogador rola um <Text style={styles.bold}>D20</Text> e soma o valor da <Text style={styles.bold}>habilidade de bônus de Calibre e Mira</Text>. O resultado define quantos tiros acertaram o alvo e se foram fatais ou não. Modificadores podem ser aplicados dependendo de fatores como <Text style={styles.bold}>distância, cobertura ou visibilidade</Text>. A <Text style={styles.bold}>penetração de armadura</Text> vai depender do tipo de arma utilizada.
                     </Text>
                 </View>
                 <View style={styles.box}>
                     <Text style={styles.subTitle}>Armaduras e Coletes</Text>
                     <Text style={styles.text}>
                         As armaduras e coletes oferecem proteção contra tiros, absorvendo o impacto de balas. Cada tipo de colete tem um número limitado de "cargas" que pode suportar, com placas que se desgastam após um certo número de impactos. Após perderem sua capacidade de absorção, as placas deixam de oferecer proteção. A efetividade da armadura pode ser influenciada pela <Text style={styles.bold}>penetração da bala </Text> da arma usada pelo inimigo.
+                    </Text>
+                </View>
+                <View style={styles.box}>
+                    <Text style={styles.subTitle}>Defesa de escudo</Text>
+                    <Text style={styles.text}>
+                        Quando o Escudeiro tenta defender a si mesmo ou a um aliado de um ataque, ele rola d20.
+                    </Text>
+                    <Text style={styles.list}>
+                        • Dependendo do valor ele consegue defender completamente o dano, verifique na aba Precisão a tabela do escudo.
+                    </Text>
+                    <Text style={styles.list}>
+                        • Se o Escudeiro falhar ao proteger a si mesmo, recebe a redução de -30% no dano.
+                    </Text>
+                    <Text style={styles.list}>
+                        • Se o Escudeiro falhar ao proteger um aliado, o dano é dividido entre Escudeiro e o Aliado, e ambos recebem a redução de -15% no dano.
                     </Text>
                 </View>
                 <View style={styles.box}>
@@ -81,7 +96,7 @@ export default function RuleTab() {
                         <Text style={styles.list}>
                             • <Text style={styles.bold}>Observação:</Text> A Reação não pode ser usada mais de uma vez no mesmo turno.
                         </Text>
-                        <Text style={[styles.list, { color: colors.secondary, fontWeight: 'bold' }]}>Exemplos de Uso Criativo</Text>
+                        <Text style={[styles.list, { color: colors.waterGreen, fontWeight: 'bold' }]}>Exemplos de Uso Criativo</Text>
                         <View style={styles.subBox}>
                             <Text style={styles.list}>
                                 • Impedir que um inimigo recarregue a arma.
@@ -98,11 +113,37 @@ export default function RuleTab() {
                         </View>
                     </View>
                 </View>
+
+                <View style={[styles.box, { paddingTop: 10 }]}>
+                    <Text style={styles.subTitle}>Sistema de Desvio</Text>
+                    <View style={styles.subBox}>
+                        <Text style={styles.list}>
+                            • Quando um ataque acerta, o alvo pode tentar desviar rolando um dado equivalente.
+                        </Text>
+                        <View style={styles.subBox}>
+                            <Text style={styles.list}>
+                                • <Text style={styles.bold}>D20 / D10 / D8 :</Text> Se o resultado for 2 ou mais que a rolagem do atacante, ele evita o dano.
+                            </Text>
+                            <Text style={styles.list}>
+                                • <Text style={styles.bold}>D4:</Text> Se o resultado for 4, ele evita o dano.
+                            </Text>
+                        </View>
+                        <Text style={styles.list}>
+                            • <Text style={styles.bold}>Observação:</Text> Desvantagens, contexto ou surpresas podem impedir ou dificultar a rolagem.
+                        </Text>
+                        <View style={styles.subBox}>
+                            <Text style={styles.list}>
+                                •  <Text style={styles.bold}>Exemplo:</Text> pego de surpresa
+                            </Text>
+                        </View>
+                    </View>
+                </View>
+
                 <View style={styles.box}>
-                    <Text style={styles.subTitle}>Tempestade de areia - Evento
+                    <Text style={styles.subTitle}>Tempestade de areia ou nevasca - Evento
                     </Text>
                     <Text style={styles.text}>
-                        Tempestades de areia podem ocorrer aleatoriamente e causar grande dificuldade aos jogadores.
+                        Eventos climáticos podem ocorrer aleatoriamente e causar grande dificuldade aos jogadores.
                     </Text>
                     <View style={styles.subBox}>
                         <Text style={styles.list}>
@@ -131,21 +172,21 @@ const styles = StyleSheet.create({
         letterSpacing: 5,
     },
     subTitle: {
-        color: colors.primary,
+        color: colors.lightGreen,
         fontWeight: "bold",
         paddingHorizontal: 10,
         marginBottom: 5,
         borderBottomWidth: 2,
         fontSize: 16,
-        borderBottomColor: colors.primary
+        borderBottomColor: colors.lightGreen
     },
     subItem: {
-        color: colors.secondary,
+        color: colors.waterGreen,
         fontWeight: "bold",
         marginBottom: 5,
         borderBottomWidth: 2,
         fontSize: 12,
-        borderBottomColor: colors.secondary
+        borderBottomColor: colors.waterGreen
     },
     text: {
         color: "#FFF",

@@ -16,6 +16,8 @@ export default function PrecisionTab() {
         sec8: useRef<View>(null),
         sec9: useRef<View>(null),
         sec10: useRef<View>(null),
+        sec11: useRef<View>(null),
+        sec12: useRef<View>(null),
     };
 
     const scrollToSection = (section: keyof typeof sectionRefs) => {
@@ -54,8 +56,18 @@ export default function PrecisionTab() {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.aside}
+                        onPress={() => scrollToSection('sec11')}>
+                        <Text style={styles.asideText}>Escudo blindado</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.aside}
                         onPress={() => scrollToSection('sec6')}>
                         <Text style={styles.asideText}>Sniper de Alto Calibre</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.aside}
+                        onPress={() => scrollToSection('sec12')}>
+                        <Text style={styles.asideText}>Rifle de caça</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.aside}
@@ -144,7 +156,7 @@ export default function PrecisionTab() {
                                     ['6 - 10', '1', '3'],
                                     ['11 - 15', '2', '2'],
                                     ['16 - 19', '3', '1'],
-                                    ['20', '1 letal + rolagem de finalização (exceto eagle)', '0'],
+                                    ['20', '1 letal + rolagem de finalização (exceto eagle e taurus)', '0'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -331,6 +343,33 @@ export default function PrecisionTab() {
                                 </View>
                             </View>
                         </View>
+                        {//! --------------------------------- Escudo blindado --------------------------------
+                        }
+                        <View ref={sectionRefs.sec11} style={{ marginBottom: 15 }}>
+                            <View >
+                                <Text style={styles.center}>Escudo blindado </Text>
+                            </View>
+                            <View style={styles.container}>
+                                {/* Cabeçalho da Tabela */}
+                                <View style={[styles.rowTable, styles.header]}>
+                                    <Text style={styles.cell}>Defesa do Calibre</Text>
+                                    <Text style={styles.cell}>Rolagem (D20)</Text>
+                                </View>
+                                {[
+                                    ['Pequeno', '+5'],
+                                    ['Médio', '+12'],
+                                    ['Intermediário', '+14'],
+                                    ['Pesado', '+16'],
+                                    ['Explosivo', '+18'],
+                                ].map((row, index) => (
+                                    <View key={index} style={styles.rowTable}>
+                                        {row.map((cell, i) => (
+                                            <Text key={i} style={[styles.cell]}>{cell}</Text>
+                                        ))}
+                                    </View>
+                                ))}
+                            </View>
+                        </View>
                         {//! --------------------------------- Sniper --------------------------------
                         }
                         <View style={{ marginBottom: 15 }} ref={sectionRefs.sec6}>
@@ -392,6 +431,79 @@ export default function PrecisionTab() {
                                         </View>
                                     ))}
                                 </View>
+                            </View>
+                        </View>
+                        {//! --------------------------------- Rifle de Caça --------------------------------
+                        }
+                        <View ref={sectionRefs.sec12} style={{ marginBottom: 15 }}>
+                            <View >
+                                <Text style={styles.center}>Rifle de Caça</Text>
+                            </View>
+                            <View style={styles.container}>
+                                {/* Cabeçalho da Tabela */}
+                                <View style={[styles.rowTable, styles.header]}>
+                                    <Text style={styles.cell}>Rolagem (D20 + Mira)</Text>
+                                    <Text style={styles.cell}>Acertos</Text>
+                                    <Text style={styles.cell}>Erros (Balas Perdida)</Text>
+                                </View>
+                                {[
+                                    ['1 - 5', '0', '3'],
+                                    ['6 - 10', '1', '2'],
+                                    ['11 - 15', '2', '1'],
+                                    ['16 - 19', '3', '0'],
+                                    ['20', '4', '0'],
+                                ].map((row, index) => (
+                                    <View key={index} style={styles.rowTable}>
+                                        {row.map((cell, i) => (
+                                            <Text key={i} style={[styles.cell]}>{cell}</Text>
+                                        ))}
+                                    </View>
+                                ))}
+                                <View style={styles.container}>
+                                    {/* Cabeçalho da Tabela */}
+                                    <View style={[styles.rowTable, styles.header]}>
+                                        <Text style={styles.cell}>Distância</Text>
+                                        <Text style={styles.cell}>Modificadores de Alcance</Text>
+                                    </View>
+                                    {[
+                                        ['Menos de 5m', 'Alcance reduzido: -2 na rolagem'],
+                                        ['6m - 11m', 'Alcance normal, sem penalidade'],
+                                        ['12m - 20m', 'Alcance aumentado: +2 na rolagem'],
+                                        ['21m - 40m', 'Alcance normal, sem penalidade'],
+                                        ['Mais de 40m', 'Alcance reduzido: -2 na rolagem'],
+                                    ].map((row, index) => (
+                                        <View key={index} style={styles.rowTable}>
+                                            {row.map((cell, i) => (
+                                                <Text key={i} style={[styles.cell]}>{cell}</Text>
+                                            ))}
+                                        </View>
+                                    ))}
+                                </View>
+                            </View>
+                        </View>
+                        {//! --------------------------------- Railgun --------------------------------
+                        }
+                        <View style={{ marginBottom: 15 }}>
+                            <View >
+                                <Text style={styles.center}>Railgun</Text>
+                            </View>
+                            <View style={styles.container}>
+                                {/* Cabeçalho da Tabela */}
+                                <View style={[styles.rowTable, styles.header]}>
+                                    <Text style={styles.cell}>Rolagem (D20 + Mira)</Text>
+                                    <Text style={styles.cell}>Resultado</Text>
+                                </View>
+                                {[
+                                    ['0 - 12m', 'Sem sucesso'],
+                                    ['13 - 20m', 'Sucesso'],
+                                ].map((row, index) => (
+                                    <View key={index} style={styles.rowTable}>
+                                        {row.map((cell, i) => (
+                                            <Text key={i} style={[styles.cell]}>{cell}</Text>
+                                        ))}
+                                    </View>
+                                ))}
+
                             </View>
                         </View>
                         {//! --------------------------------- Faca --------------------------------
@@ -489,21 +601,21 @@ const styles = StyleSheet.create({
         letterSpacing: 5,
     },
     subTitle: {
-        color: colors.primary,
+        color: colors.lightGreen,
         fontWeight: "bold",
         paddingHorizontal: 10,
         marginBottom: 5,
         borderBottomWidth: 2,
         fontSize: 16,
-        borderBottomColor: colors.primary
+        borderBottomColor: colors.lightGreen
     },
     subItem: {
-        color: colors.secondary,
+        color: colors.waterGreen,
         fontWeight: "bold",
         marginBottom: 5,
         borderBottomWidth: 2,
         fontSize: 12,
-        borderBottomColor: colors.secondary
+        borderBottomColor: colors.waterGreen
     },
     text: {
         color: "#FFF",
@@ -529,7 +641,7 @@ const styles = StyleSheet.create({
     },
     unique: {
         fontWeight: 'bold',
-        color: colors.primary,
+        color: colors.lightGreen,
         fontSize: 16,
         paddingBottom: 10
     },
@@ -540,7 +652,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     button: {
-        backgroundColor: colors.primary,
+        backgroundColor: colors.lightGreen,
         width: 100,
         height: 60,
         padding: 10,
@@ -586,7 +698,7 @@ const styles = StyleSheet.create({
     },
     header: {
         fontWeight: 'bold',
-        backgroundColor: colors.primary,
+        backgroundColor: colors.lightGreen,
         paddingVertical: 10,
     },
 })

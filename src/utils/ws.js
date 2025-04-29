@@ -1,5 +1,4 @@
-// WebSocketContext.js
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 
 const WebSocketContext = createContext();
 
@@ -8,17 +7,22 @@ export const useWebSocket = () => useContext(WebSocketContext);
 export const WebSocketProvider = ({ children }) => {
     const [socket, setSocket] = useState(null);
     const [message, setMessage] = useState();
+    const socketUrl = 'ws://192.168.18.216:8080';
+    const wsRef = useRef(null);
 
-    useEffect(() => {
-        // Conectar no WebSocket
-        const ws = new WebSocket('ws://192.168.18.216:8080');
+    const connect = useCallback(() => {
+        if (wsRef.current && (wsRef.current.readyState === WebSocket.OPEN || wsRef.current.readyState === WebSocket.CONNECTING)) {
+            return; // já está aberto ou tentando abrir
+        }
+
+        const ws = new WebSocket(socketUrl);
 
         ws.onopen = () => {
             console.log('Conectado ao WebSocket');
         };
 
         ws.onmessage = (event) => {
-            setMessage((prevMessages) => event.data);
+            setMessage(event.data);
         };
 
         ws.onerror = (error) => {
@@ -29,15 +33,25 @@ export const WebSocketProvider = ({ children }) => {
             console.log('Desconectado do WebSocket');
         };
 
+        wsRef.current = ws;
         setSocket(ws);
-
-        return () => {
-            if (ws) ws.close();
-        };
     }, []);
 
+    const disconnect = useCallback(() => {
+        if (wsRef.current) {
+            wsRef.current.close();
+            wsRef.current = null;
+            setSocket(null);
+        }
+    }, []);
+
+    useEffect(() => {
+        connect();
+        return () => disconnect();
+    }, [connect, disconnect]);
+
     return (
-        <WebSocketContext.Provider value={{ socket, message }}>
+        <WebSocketContext.Provider value={{ socket, message, connect, disconnect }}>
             {children}
         </WebSocketContext.Provider>
     );

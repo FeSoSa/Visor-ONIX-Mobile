@@ -1,28 +1,36 @@
 import React, { ReactNode } from 'react';
-import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
+import { ImageBackground, SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
 import 'react-native-gesture-handler';
 
 interface LayoutProps {
   children: ReactNode;
+  backgroundImage?: string; // opcional: se não tiver, usa cor sólida
 }
 
-function Layout({ children }: LayoutProps) {
+function Layout({ children, backgroundImage }: LayoutProps) {
+  const Wrapper = backgroundImage ? ImageBackground : View;
+  const wrapperProps = backgroundImage
+    ? { source: { uri: backgroundImage }, resizeMode: 'cover' as const }
+    : {};
 
   return (
-    <SafeAreaView style={styles.background}>
+    <SafeAreaView style={styles.safeArea}>
       <StatusBar hidden={true} />
-      {children}
+      <Wrapper style={styles.background} {...wrapperProps}>
+        {children}
+      </Wrapper>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  background: {
-    color: "#FFF",
-    backgroundColor: "#171717",
+  safeArea: {
     flex: 1,
-    resizeMode: "cover",
-    justifyContent: "center",
+    backgroundColor: '#171717', // fallback se imagem falhar
+  },
+  background: {
+    flex: 1,
+    justifyContent: 'center',
   },
 });
 

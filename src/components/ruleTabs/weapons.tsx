@@ -18,6 +18,7 @@ export default function WeaponTab() {
         sec10: useRef<View>(null),
         sec11: useRef<View>(null),
         sec12: useRef<View>(null),
+        sec13: useRef<View>(null),
     };
 
     const scrollToSection = (section: keyof typeof sectionRefs) => {
@@ -42,7 +43,7 @@ export default function WeaponTab() {
                     <TouchableOpacity
                         style={styles.aside}
                         onPress={() => scrollToSection('sec3')}>
-                        <Text style={styles.asideText}>Desert Eagle</Text>
+                        <Text style={styles.asideText}>Desert Eagle / Taurus</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.aside}
@@ -53,6 +54,11 @@ export default function WeaponTab() {
                         style={styles.aside}
                         onPress={() => scrollToSection('sec5')}>
                         <Text style={styles.asideText}>Barret M82 / AWP</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.aside}
+                        onPress={() => scrollToSection('sec13')}>
+                        <Text style={styles.asideText}>Browning Bar MK3</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.aside}
@@ -101,16 +107,10 @@ export default function WeaponTab() {
                                     Calibre Pequeno
                                 </Text>
                                 <Text style={styles.list}>
-                                    • Dano fixo de <Text style={styles.bold}>3</Text>. Esse tipo de bala é eficaz em alvos menos blindados, causando dano moderado.
-                                </Text>
-                                <Text style={styles.list}>
                                     • <Text style={styles.bold}>Penetração baixa</Text>, ideal para alvos com pouca ou nenhuma armadura.
                                 </Text>
                                 <Text style={styles.subItem}>
                                     Calibre Médio
-                                </Text>
-                                <Text style={styles.list}>
-                                    • Dano fixo de <Text style={styles.bold}>6</Text>, um pouco mais alto que o calibre pequeno.
                                 </Text>
                                 <Text style={styles.list}>
                                     • <Text style={styles.bold}>Penetração média</Text>, permitindo que atravesse armaduras leves ou blindagem.
@@ -119,7 +119,7 @@ export default function WeaponTab() {
                                     Calibre intermediário
                                 </Text>
                                 <Text style={styles.list}>
-                                    • Dano fixo de <Text style={styles.bold}>8</Text>, ideal para causar grandes danos a curta distância.
+                                    • Ideal para causar grandes danos a curta distância.
                                 </Text>
                                 <Text style={styles.list}>
                                     • <Text style={styles.bold}>Alta penetração</Text>, capaz de perfurar armadura pesada quando usado a queima-roupa.
@@ -128,7 +128,7 @@ export default function WeaponTab() {
                                     Calibre Pesado
                                 </Text>
                                 <Text style={styles.list}>
-                                    • Dano fixo de <Text style={styles.bold}>32</Text>, ideal para causar grandes danos em alvos mais resistentes.
+                                    • Ideal para causar grandes danos em alvos mais resistentes.
                                 </Text>
                                 <Text style={styles.list}>
                                     • <Text style={styles.bold}>Alta penetração</Text>, capaz de perfurar quase qualquer armadura ou blindagem.
@@ -137,7 +137,7 @@ export default function WeaponTab() {
                                     Munição Explosiva
                                 </Text>
                                 <Text style={styles.list}>
-                                    • Dano fixo de <Text style={styles.bold}>42</Text>, uma munição de grande poder explosivo, ideal para destruir alvos e causar grandes danos em área.
+                                    • Uma munição de grande poder explosivo, ideal para destruir alvos e causar grandes danos em área.
                                 </Text>
                                 <Text style={styles.list}>
                                     • A <Text style={styles.bold}>alta penetração</Text> torna esta munição capaz de destruir veículos ou alvos fortemente blindados.
@@ -151,21 +151,20 @@ export default function WeaponTab() {
                         }
                         <View ref={sectionRefs.sec1} style={{ marginBottom: 15 }}>
                             <View >
-                                <Text style={styles.center}>Tipo de Bala (Dano Fixo)</Text>
+                                <Text style={styles.center}>Tipo de Bala (Dano Bônus)</Text>
                             </View>
                             <View style={styles.container}>
                                 {/* Cabeçalho da Tabela */}
                                 <View style={[styles.rowTable, styles.header]}>
-                                    <Text style={styles.cell}>Tipo de Munição</Text>
-                                    <Text style={styles.cell}>Calibre Pequeno</Text>
-                                    <Text style={styles.cell}>Calibre Médio</Text>
-                                    <Text style={styles.cell}>Calibre intermediário</Text>
-                                    <Text style={styles.cell}>Calibre Pesado</Text>
-                                    <Text style={styles.cell}>Munição Explosiva</Text>
+                                    <Text style={styles.cell}>Tipo de Calibre</Text>
+                                    <Text style={styles.cell}>Pequeno</Text>
+                                    <Text style={styles.cell}>Médio</Text>
+                                    <Text style={styles.cell}>Tambor</Text>
+                                    <Text style={styles.cell}>Pesado</Text>
+                                    <Text style={styles.cell}>Explosivo</Text>
                                 </View>
                                 {[
-                                    ['Dano', '3', '6', '8', '32', '42'],
-                                    ['Penetração', 'Baixa', 'Media', 'Alta', 'Alta', 'Alta'],
+                                    ['Dano', '2', '4', '6', '20', '30'],
                                     ['Tipo de Dano', 'Perfuração', 'Perfuração', 'Perfuração', 'Perfuração', 'Explosivo'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
@@ -189,7 +188,8 @@ export default function WeaponTab() {
                                     <Text style={styles.cell}>Valor</Text>
                                 </View>
                                 {[
-                                    ['Tipo de Munição', 'Calibre Pequeno'],
+                                    ['Tipo de Calibre', 'Pequeno'],
+                                    ['Dano base', '2'],
                                     ['Penetração', 'Baixa'],
                                     ['Capacidade do Cartucho', '10 balas'],
                                     ['Disparo', 'Semi-automático'],
@@ -215,8 +215,9 @@ export default function WeaponTab() {
                                     <Text style={styles.cell}>Valor</Text>
                                 </View>
                                 {[
-                                    ['Tipo de Munição', 'Calibre Médio'],
-                                    ['Penetração', 'Alta'],
+                                    ['Tipo de Calibre', 'Médio'],
+                                    ['Dano base', '3'],
+                                    ['Penetração', 'Média'],
                                     ['Capacidade do Cartucho', '7 balas'],
                                     ['Disparo', 'Semi-automático'],
                                 ].map((row, index) => (
@@ -241,11 +242,11 @@ export default function WeaponTab() {
                                     <Text style={styles.cell}>Valor</Text>
                                 </View>
                                 {[
-                                    ['Tipo de Munição', 'Calibre Médio'],
+                                    ['Tipo de Calibre', 'Médio'],
+                                    ['Dano base', '5'],
                                     ['Penetração', 'Média'],
                                     ['Capacidade do Cartucho', '24 balas'],
                                     ['Disparo', 'Automático '],
-                                    ['Modificador (AK-47)', '+1 '],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -268,10 +269,38 @@ export default function WeaponTab() {
                                     <Text style={styles.cell}>Valor</Text>
                                 </View>
                                 {[
-                                    ['Tipo de Munição', 'Calibre Pesado'],
+                                    ['Tipo de Calibre', 'Pesado'],
+                                    ['Dano base', '20'],
                                     ['Penetração', 'Alta'],
                                     ['Capacidade do Cartucho', '7 balas'],
                                     ['Disparo', 'Único'],
+                                ].map((row, index) => (
+                                    <View key={index} style={styles.rowTable}>
+                                        {row.map((cell, i) => (
+                                            <Text key={i} style={[styles.cell]}>{cell}</Text>
+                                        ))}
+                                    </View>
+                                ))}
+                            </View>
+                        </View>
+                        {//! --------------------------------- Browning Bar MK3 --------------------------------
+                        }
+                        <View ref={sectionRefs.sec13} style={{ marginBottom: 15 }}>
+                            <View >
+                                <Text style={styles.center}>Browning Bar MK3 (Rifle)</Text>
+                            </View>
+                            <View style={styles.container}>
+                                {/* Cabeçalho da Tabela */}
+                                <View style={[styles.rowTable, styles.header]}>
+                                    <Text style={styles.cell}>Atributo</Text>
+                                    <Text style={styles.cell}>Valor</Text>
+                                </View>
+                                {[
+                                    ['Tipo de Calibre', 'Pesado'],
+                                    ['Dano base', '5'],
+                                    ['Penetração', 'Média'],
+                                    ['Capacidade do Cartucho', '7 balas'],
+                                    ['Disparo', 'Semi-Automático'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -294,11 +323,11 @@ export default function WeaponTab() {
                                     <Text style={styles.cell}>Valor</Text>
                                 </View>
                                 {[
-                                    ['Tipo de Munição', 'Calibre Pequeno'],
+                                    ['Tipo de Calibre', 'Médio'],
+                                    ['Dano base', '4'],
                                     ['Penetração', 'Média'],
                                     ['Capacidade do Cartucho', '25 balas'],
                                     ['Disparo', 'Automático '],
-                                    ['Modificador', '+1 '],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -321,11 +350,11 @@ export default function WeaponTab() {
                                     <Text style={styles.cell}>Valor</Text>
                                 </View>
                                 {[
-                                    ['Tipo de Munição', 'Calibre Pequeno'],
+                                    ['Tipo de Calibre', 'Pequeno'],
+                                    ['Dano base', '3'],
                                     ['Penetração', 'Baixa'],
                                     ['Capacidade do Cartucho', '30 balas'],
                                     ['Disparo', 'Automático '],
-                                    ['Modificador (Uzi)', '-1 '],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -348,7 +377,8 @@ export default function WeaponTab() {
                                     <Text style={styles.cell}>Valor</Text>
                                 </View>
                                 {[
-                                    ['Tipo de Munição', 'Calibre Médio'],
+                                    ['Tipo de Calibre', 'Médio'],
+                                    ['Dano base', '4'],
                                     ['Penetração', 'Média'],
                                     ['Capacidade do Cartucho', '80 balas'],
                                     ['Disparo', 'Automático '],
@@ -374,11 +404,12 @@ export default function WeaponTab() {
                                     <Text style={styles.cell}>Valor</Text>
                                 </View>
                                 {[
-                                    ['Tipo de Munição', 'Cartuchos de Chumbo'],
-                                    ['Penetração', 'Média (curta distância)'],
+                                    ['Tipo de Calibre', 'Tambor'],
+                                    ['Dano base', '7'],
+                                    ['Penetração', 'Média'],
                                     ['Capacidade', '8 cartuchos'],
-                                    ['Disparo', 'Tiros únicos (dispersão)'],
-                                    ['Observação', 'A shotgun não usa cartuchos em munição no colete e sim carrega balas avulsas, cada capacidade de cartucho no colete é equivalente a 8 balas'],
+                                    ['Disparo', 'Dispersão'],
+                                    ['Observação', 'A shotgun não usa cartuchos de munição no colete e sim balas avulsas, cada capacidade de cartucho no colete é equivalente a 8 balas'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -401,7 +432,8 @@ export default function WeaponTab() {
                                     <Text style={styles.cell}>Valor</Text>
                                 </View>
                                 {[
-                                    ['Tipo de Munição', 'Explosiva'],
+                                    ['Tipo de Calibre', 'Explosiva'],
+                                    ['Dano base', '15'],
                                     ['Penetração', 'Alta'],
                                     ['Capacidade do Cartucho', '1 Granada especial'],
                                     ['Disparo', 'Único '],
@@ -427,9 +459,37 @@ export default function WeaponTab() {
                                     <Text style={styles.cell}>Valor</Text>
                                 </View>
                                 {[
-                                    ['Tipo de Munição', 'Calibre Pesado'],
+                                    ['Tipo de Calibre', 'Pesado'],
+                                    ['Dano base', '25'],
                                     ['Penetração', 'Muito Alta'],
                                     ['Capacidade do Cartucho', '3 balas'],
+                                    ['Disparo', 'Único'],
+                                ].map((row, index) => (
+                                    <View key={index} style={styles.rowTable}>
+                                        {row.map((cell, i) => (
+                                            <Text key={i} style={[styles.cell]}>{cell}</Text>
+                                        ))}
+                                    </View>
+                                ))}
+                            </View>
+                        </View>
+                        {//! --------------------------------- Railgun --------------------------------
+                        }
+                        <View style={{ marginBottom: 15 }}>
+                            <View >
+                                <Text style={styles.center}>Railgun</Text>
+                            </View>
+                            <View style={styles.container}>
+                                {/* Cabeçalho da Tabela */}
+                                <View style={[styles.rowTable, styles.header]}>
+                                    <Text style={styles.cell}>Atributo</Text>
+                                    <Text style={styles.cell}>Valor</Text>
+                                </View>
+                                {[
+                                    ['Tipo de Calibre', 'Elétrico'],
+                                    ['Dano base', '60'],
+                                    ['Penetração', 'Muito Alta'],
+                                    ['Capacidade do Cartucho', '2 cargas'],
                                     ['Disparo', 'Único'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
@@ -454,7 +514,7 @@ export default function WeaponTab() {
                                 </View>
                                 {[
                                     ['Scope Acog (2x)', '+1'],
-                                    ['Scope Acog (4x)', '+1.5'],
+                                    ['Scope Acog (4x)', '+2'],
                                     ['Scope Termal', '+2 '],
                                     ['Scope de Sniper (12x)', 'Exclusivo para Sniper'],
                                 ].map((row, index) => (
@@ -466,6 +526,7 @@ export default function WeaponTab() {
                                 ))}
                             </View>
                         </View>
+
                     </View>
                 </ScrollView>
             </View>
@@ -483,21 +544,21 @@ const styles = StyleSheet.create({
         letterSpacing: 5,
     },
     subTitle: {
-        color: colors.primary,
+        color: colors.lightGreen,
         fontWeight: "bold",
         paddingHorizontal: 10,
         marginBottom: 5,
         borderBottomWidth: 2,
         fontSize: 16,
-        borderBottomColor: colors.primary
+        borderBottomColor: colors.lightGreen
     },
     subItem: {
-        color: colors.secondary,
+        color: colors.waterGreen,
         fontWeight: "bold",
         marginBottom: 5,
         borderBottomWidth: 2,
         fontSize: 12,
-        borderBottomColor: colors.secondary
+        borderBottomColor: colors.waterGreen
     },
     text: {
         color: "#FFF",
@@ -523,7 +584,7 @@ const styles = StyleSheet.create({
     },
     unique: {
         fontWeight: 'bold',
-        color: colors.primary,
+        color: colors.lightGreen,
         fontSize: 16,
         paddingBottom: 10
     },
@@ -534,7 +595,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     button: {
-        backgroundColor: colors.primary,
+        backgroundColor: colors.lightGreen,
         width: 100,
         height: 60,
         padding: 10,
@@ -580,7 +641,7 @@ const styles = StyleSheet.create({
     },
     header: {
         fontWeight: 'bold',
-        backgroundColor: colors.primary,
+        backgroundColor: colors.lightGreen,
         paddingVertical: 10,
     },
 })

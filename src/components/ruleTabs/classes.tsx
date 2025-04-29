@@ -11,6 +11,8 @@ export default function ClassTab() {
         sec3: useRef<View>(null),
         sec4: useRef<View>(null),
         sec5: useRef<View>(null),
+        sec6: useRef<View>(null),
+        sec7: useRef<View>(null),
     };
 
     const scrollToSection = (section: keyof typeof sectionRefs) => {
@@ -34,6 +36,11 @@ export default function ClassTab() {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.aside}
+                        onPress={() => scrollToSection('sec6')}>
+                        <Text style={styles.asideText}>Caçador</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.aside}
                         onPress={() => scrollToSection('sec3')}>
                         <Text style={styles.asideText}>Engenheiro</Text>
                     </TouchableOpacity>
@@ -46,6 +53,11 @@ export default function ClassTab() {
                         style={styles.aside}
                         onPress={() => scrollToSection('sec5')}>
                         <Text style={styles.asideText}><Text style={styles.bold}>Inteligência</Text></Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.aside}
+                        onPress={() => scrollToSection('sec7')}>
+                        <Text style={styles.asideText}><Text style={styles.bold}>Escudeiro</Text></Text>
                     </TouchableOpacity>
                 </ScrollView>
             </View>
@@ -67,24 +79,6 @@ export default function ClassTab() {
                                 <Text style={styles.text}>
                                     A classe Assalto é a principal força ofensiva da equipe, projetada para confrontos diretos e combates em curta e média distância. Equipados com rifles automáticos e alto poder de fogo, os soldados de Assalto lideram as investidas e sustentam a pressão sobre o inimigo, dominando o campo de batalha com mobilidade e versatilidade.
                                 </Text>
-                                <Text style={styles.subItem}>
-                                    Atributos
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Força</Text>: 14
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Destreza</Text>: 12
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Inteligência</Text>: 10
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Constituição</Text>: 24
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Percepção</Text>: 11
-                                </Text>
 
                                 <Text style={styles.subItem}>
                                     Habilidades Especiais
@@ -99,7 +93,7 @@ export default function ClassTab() {
                                     • Adrenalina: Ao atingir um valor natural de +18 em dois turnos consecutivos, o próximo ataque é crítico automaticamente.
                                 </Text>
                                 <Text style={styles.list}>
-                                    • Ainda não: Em estado quase morte, consegue se levantar sozinho e todas suas habilidades são recarregadas. Utilizavel uma única vez no jogo, após uso o operador desmaia.
+                                    • Visor adaptativo: Imune a efeitos de flashbangs e luz intensa. Quando uma granada de luz explode por perto, recebe +2 de vantagem no próximo ataque.
                                 </Text>
                                 <Text style={styles.subItem}>
                                     Equipamento Inicial
@@ -111,13 +105,13 @@ export default function ClassTab() {
                                     • <Text style={styles.bold}>Arma Secundária:</Text> Pistola Glock
                                 </Text>
                                 <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Colete:</Text> Colete Médio – Equilíbrio entre proteção e mobilidade, capaz de resistir a rajadas de fuzil.
+                                    • <Text style={styles.bold}>Colete:</Text> Médio – Equilíbrio entre proteção e mobilidade, capaz de resistir a rajadas de fuzil.
                                 </Text>
                                 <Text style={styles.list}>
                                     • Caixa de Munição: Permite carregar até 6 cartuchos vazios fora de combate.
                                 </Text>
                                 <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Rádio Tático:</Text> Comunicação com a equipe em um raio de até 50 metros.
+                                    • <Text style={styles.bold}>Rádio Tático:</Text> Comunicação com a equipe em um raio de até 100 metros.
                                 </Text>
                             </View>
                         </View>
@@ -134,24 +128,6 @@ export default function ClassTab() {
                                 <Text style={styles.text}>
                                     A classe Sniper é a especialista em eliminar alvos de longo alcance com precisão cirúrgica. Suas habilidades em camuflagem, visão avançada e paciência tornam o Sniper uma peça-chave para suporte estratégico, neutralizando ameaças antes que o inimigo perceba sua presença.
                                 </Text>
-                                <Text style={styles.subItem}>
-                                    Atributos
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Força</Text>: 8
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Destreza</Text>: 16
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Inteligência</Text>: 14
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Constituição</Text>: 20
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Percepção</Text>: 18
-                                </Text>
 
                                 <Text style={styles.subItem}>
                                     Habilidades Especiais
@@ -160,7 +136,7 @@ export default function ClassTab() {
                                     • Prender Respiração: Concede um bônus de +2 na rolagem do próximo ataque, consumindo uma ação principal.
                                 </Text>
                                 <Text style={styles.list}>
-                                    • Camuflagem: Permite ao Sniper se esconder no ambiente, ficando indetectável por inimigos em áreas específicas por até 3 turnos.
+                                    • Camuflagem: Permite ao Sniper se esconder em estruturas, ficando indetectável por inimigos em áreas específicas por até 3 turnos.
                                 </Text>
                                 <Text style={styles.list}>
                                     • Olhos de Águia: Garante +1 na rolagem ao mirar em alvos a mais de 100 metros de distância.
@@ -178,13 +154,67 @@ export default function ClassTab() {
                                     • <Text style={styles.bold}>Arma Secundária:</Text> Desert Eagle – Pistola potente, excelente em confrontos próximos.
                                 </Text>
                                 <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Colete:</Text> Colete Médio – Equilíbrio entre proteção e mobilidade, capaz de resistir a rajadas de fuzil.
+                                    • <Text style={styles.bold}>Colete:</Text> Médio – Equilíbrio entre proteção e mobilidade, capaz de resistir a rajadas de fuzil.
                                 </Text>
                                 <Text style={styles.list}>
                                     • Binóculos: Permite identificar e localizar inimigos em áreas distantes.
                                 </Text>
                                 <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Rádio Tático:</Text> Comunicação com a equipe em um raio de até 50 metros.
+                                    • <Text style={styles.bold}>Rádio Tático:</Text> Comunicação com a equipe em um raio de até 100 metros.
+                                </Text>
+                            </View>
+                        </View>
+                        {//! --------------------------------- Caçador --------------------------------
+                        }
+                        <View style={styles.box} ref={sectionRefs.sec6}>
+                            <Text style={styles.subTitle}>
+                                Caçador
+                            </Text>
+                            <View style={styles.subBox}>
+                                <Text style={styles.subItem}>
+                                    Descrição Geral
+                                </Text>
+                                <Text style={styles.text}>
+                                    O Caçador é capaz de rastrear inimigos e manipular o campo de batalha com a ajuda de seu lobo. Mesmo com poder de fogo limitado, sua sinergia com o pet permite distrações, sangramentos e ataques precisos à distância.
+                                </Text>
+                                <Text style={styles.subItem}>
+                                    Habilidades Especiais
+                                </Text>
+                                <Text style={styles.list}>
+                                    • Sangue frio: Concede um bônus de +1 na rolagem do próximo ataque, consumindo uma ação principal.
+                                </Text>
+                                <Text style={styles.list}>
+                                    • Camuflagem: Permite ao Sniper se esconder no meio ambiente, ficando indetectável por inimigos por até 3 turnos.
+                                </Text>
+                                <Text style={styles.list}>
+                                    • Controle do Lobo: Pode comandar o Lobo para agir de maneira tática (20 HP)
+                                </Text>
+
+                                <View style={styles.subBox}>
+                                    <Text style={styles.list}>• Mordida: Causa dano fixo 1d6, com chance de Sangramento na segunda mordida (+10 no 1d20).</Text>
+                                    <Text style={styles.list}>• Distração: Força o inimigo a rolar com desvantagem para desviar no próximo turno. 1 vez a cada 2 turnos.</Text>
+                                    <Text style={styles.list}>• Rastrear: Localiza inimigos ou pegadas recentes.</Text>
+                                    <Text style={styles.list}>• <Text style={styles.bold}>Sangramento:</Text> Aplica sangramento (1d4 por 3 turnos); seus inimigos causam +2 de dano no alvo.</Text>
+                                    <Text style={styles.list}>• <Text style={styles.bold}>Observação:</Text> O Lobo é frágil, com vida baixa. Se ferido, recua por 2 turnos e não pode ser curado em combate.</Text>
+                                </View>
+
+                                <Text style={styles.subItem}>
+                                    Equipamento Inicial
+                                </Text>
+                                <Text style={styles.list}>
+                                    • <Text style={styles.bold}>Arma Primária:</Text> Rifle Browning Bar Mk3
+                                </Text>
+                                <Text style={styles.list}>
+                                    • <Text style={styles.bold}>Arma Secundária:</Text> Nenhuma
+                                </Text>
+                                <Text style={styles.list}>
+                                    • <Text style={styles.bold}>Colete:</Text> Médio – Equilíbrio entre proteção e mobilidade, capaz de resistir a rajadas de fuzil.
+                                </Text>
+                                <Text style={styles.list}>
+                                    •  <Text style={styles.bold}>Equipamentos Extras:</Text> Sinalizador, ração e roupa de camuflagem.
+                                </Text>
+                                <Text style={styles.list}>
+                                    • <Text style={styles.bold}>Rádio Tático:</Text> Comunicação com a equipe em um raio de até 100 metros.
                                 </Text>
                             </View>
                         </View>
@@ -201,24 +231,6 @@ export default function ClassTab() {
                                 <Text style={styles.text}>
                                     O Engenheiro é o especialista técnico da equipe, com habilidades para reparar veículos, desarmar explosivos e criar armadilhas. Também possui armamento tático para destruição estratégica, garantindo suporte essencial em operações técnicas e logísticas.
                                 </Text>
-                                <Text style={styles.subItem}>
-                                    Atributos
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Força</Text>: 12
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Destreza</Text>: 13
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Inteligência</Text>: 15
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Constituição</Text>: 20
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Percepção</Text>: 11
-                                </Text>
 
                                 <Text style={styles.subItem}>
                                     Habilidades Especiais
@@ -232,6 +244,15 @@ export default function ClassTab() {
                                 <Text style={styles.list}>
                                     • Lança-Granadas: Equipamento compacto com 2 cargas de alto poder explosivo.
                                 </Text>
+                                <Text style={styles.list}>
+                                    • Olhar Analítico: Usa seu conhecimento técnico para analisar estruturas, equipamentos, veículos ou armas pesadas, identificando falhas ou pontos fracos.
+                                </Text>
+                                <View style={styles.subBox}>
+                                    <Text style={styles.list}>• Se tirar +10, recebe +2 de rolagem ao atacar o alvo analisado (por 2 turnos). 1 vez por combate
+                                    </Text>
+                                    <Text style={styles.list}>• Só pode ser usada contra alvos mecânicos, blindados ou estruturas.
+                                    </Text>
+                                </View>
                                 <Text style={styles.subItem}>
                                     Equipamento Inicial
                                 </Text>
@@ -242,13 +263,13 @@ export default function ClassTab() {
                                     • <Text style={styles.bold}>Arma Secundária:</Text> Pistola Glock
                                 </Text>
                                 <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Colete:</Text> Colete Médio – Equilíbrio entre proteção e mobilidade, capaz de resistir a rajadas de fuzil.
+                                    • <Text style={styles.bold}>Colete:</Text> Médio – Equilíbrio entre proteção e mobilidade, capaz de resistir a rajadas de fuzil.
                                 </Text>
                                 <Text style={styles.list}>
                                     • Equipamentos Extras: Kit de ferramentas, sinalizador, Lança-Granadas compacto.
                                 </Text>
                                 <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Rádio Tático:</Text> Comunicação com a equipe em um raio de até 50 metros.
+                                    • <Text style={styles.bold}>Rádio Tático:</Text> Comunicação com a equipe em um raio de até 100 metros.
                                 </Text>
                             </View>
                         </View>
@@ -265,37 +286,30 @@ export default function ClassTab() {
                                 <Text style={styles.text}>
                                     O Médico é responsável por manter a equipe viva em situações críticas. Especialista em curar ferimentos, estabilizar aliados e fornecer suporte em campo, essa classe é indispensável para o sucesso da missão.
                                 </Text>
-                                <Text style={styles.subItem}>
-                                    Atributos
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Força</Text>: 10
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Destreza</Text>: 11
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Inteligência</Text>: 14
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Constituição</Text>: 16
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Percepção</Text>: 13
-                                </Text>
 
                                 <Text style={styles.subItem}>
                                     Habilidades Especiais
                                 </Text>
                                 <Text style={styles.list}>
-                                    • Injeção de adrenalina: Aumenta +1 na rolagem de algum aliado por 2 turnos. 1 vez por combate
+                                    • Injeção de adrenalina: Aumenta +2 na rolagem de algum aliado no próximo turno. 1 vez por combate
                                 </Text>
                                 <Text style={styles.list}>
-                                    • Kit Médico: Recupera 80% da vida de um aliado, utilizável 1 vez por combate.
+                                    • Kit Médico: Recupera 80% da vida de um aliado. Recarrega após 3 turnos
                                 </Text>
                                 <Text style={styles.list}>
-                                    • Estabilizar Feridos: Previne a morte de um aliado gravemente ferido, permitindo que ele lute por mais 3 turnos.
+                                    • Analgésico: Reduz 30% do dano recebido por um aliado ou por si mesmo no próximo ataque. 1 vez por combate
                                 </Text>
+                                <Text style={styles.list}>
+                                    • Conhecimento do Corpo: Usa seu conhecimento anatômico para atacar pontos críticos. Recarrega após 3 turnos.
+                                </Text>
+                                <View style={styles.subBox}>
+                                    <Text style={styles.list}>• D20 ≥ 16: Causa 1d20 de dano em pontos fatais, deixa em desvantagem de -1
+                                    </Text>
+                                    <Text style={styles.list}>• D20 ≥ 11: Causa 1d8 em ligamentos, deixa em desvantagem de -1
+                                    </Text>
+                                    <Text style={styles.list}>• D20 ≤ 10: Causa 1d4 de dano normal.</Text>
+                                </View>
+
                                 <Text style={styles.subItem}>
                                     Equipamento Inicial
                                 </Text>
@@ -306,13 +320,13 @@ export default function ClassTab() {
                                     • <Text style={styles.bold}>Arma Secundária:</Text> Pistola Glock
                                 </Text>
                                 <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Colete:</Text> Colete Pesado– Oferece maior mobilidade, com espaço para kits médicos.
+                                    • <Text style={styles.bold}>Colete:</Text> Pesado– Oferece maior mobilidade, com espaço para kits médicos.
                                 </Text>
                                 <Text style={styles.list}>
                                     • Equipamentos Extras: Kit de Primeiros Socorros, morfina, desfibrilador.
                                 </Text>
                                 <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Rádio Tático:</Text> Comunicação com a equipe em um raio de até 50 metros.
+                                    • <Text style={styles.bold}>Rádio Tático:</Text> Comunicação com a equipe em um raio de até 100 metros.
                                 </Text>
                             </View>
                         </View>
@@ -328,24 +342,6 @@ export default function ClassTab() {
                                 </Text>
                                 <Text style={styles.text}>
                                     A classe <Text style={styles.bold}>Inteligência</Text> atua como o centro de planejamento e análise tática da equipe. Com habilidades para hackear sistemas, monitorar movimentos e criar distrações estratégicas, é essencial para evitar emboscadas e garantir vantagens táticas.
-                                </Text>
-                                <Text style={styles.subItem}>
-                                    Atributos
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Força</Text>: 8
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Destreza</Text>: 12
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Inteligência</Text>: 17
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Constituição</Text>: 20
-                                </Text>
-                                <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Percepção</Text>: 15
                                 </Text>
 
                                 <Text style={styles.subItem}>
@@ -373,13 +369,65 @@ export default function ClassTab() {
                                     • <Text style={styles.bold}>Arma Secundária:</Text> USP Silenciada.
                                 </Text>
                                 <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Colete:</Text> Colete Leve – Projetado para transportar dispositivos eletrônicos.
+                                    • <Text style={styles.bold}>Colete:</Text> Leve – Projetado para transportar dispositivos eletrônicos.
                                 </Text>
                                 <Text style={styles.list}>
                                     • Equipamentos Extras: Laptop de invasão, bomba sonora, drone de vigilância e sinalizador.
                                 </Text>
                                 <Text style={styles.list}>
-                                    • <Text style={styles.bold}>Rádio Tático:</Text> Comunicação com a equipe em um raio de até 50 metros.
+                                    • <Text style={styles.bold}>Rádio Tático:</Text> Comunicação com a equipe em um raio de até 100 metros.
+                                </Text>
+                            </View>
+                        </View>
+                        {//! --------------------------------- Escudeiro --------------------------------
+                        }
+                        <View style={styles.box} ref={sectionRefs.sec7}>
+                            <Text style={styles.subTitle}>
+                                Escudeiro
+                            </Text>
+                            <View style={styles.subBox}>
+                                <Text style={styles.subItem}>
+                                    Descrição Geral
+                                </Text>
+                                <Text style={styles.text}>
+                                    O Escudeiro é capaz de proteger aliados com seu escudo balístico, bloquear disparos de diferentes calibres e abrir espaço com empurrões estratégicos. Sua presença segura a linha de frente e reduz o dano recebido em equipe.
+                                </Text>
+                                <Text style={styles.subItem}>
+                                    Habilidades Especiais
+                                </Text>
+                                <Text style={styles.list}>
+                                    • Escudo: Usa um escudo blindado em vez de arma primaria capaz de defender aliados ou a si mesmo. Ler mecânica de escudo na aba Armas
+                                </Text>
+                                <Text style={styles.list}>
+                                    • Coragem: O Escudeiro recebe +2 em qualquer rolagem de d20 uma vez por combate.
+                                </Text>
+                                <Text style={styles.list}>
+                                    • Empurrão: Ao rolar +10 no D20, o Escudeiro empurra o inimigo, atordoando-o por um turno. Durante esse tempo, qualquer aliado que atacar o inimigo recebe +2 de bônus na rolagem de ataque.
+                                </Text>
+                                <Text style={styles.list}>
+                                    • Resistente: Resistente a balas de calibre leve(+7 no D20)
+                                </Text>
+                                <Text style={styles.list}>
+                                    • Ainda não: Em estado quase morte, consegue se levantar sozinho e todas suas habilidades são recarregadas. Utilizavel uma única vez no jogo, após uso fica com 1 de HP.
+                                </Text>
+
+                                <Text style={styles.subItem}>
+                                    Equipamento Inicial
+                                </Text>
+                                <Text style={styles.list}>
+                                    • <Text style={styles.bold}>Arma Primária:</Text> Escudo blindado
+                                </Text>
+                                <Text style={styles.list}>
+                                    • <Text style={styles.bold}>Arma Secundária:</Text> Pistola Taurus PT92
+                                </Text>
+                                <Text style={styles.list}>
+                                    • <Text style={styles.bold}>Colete:</Text> Pesado
+                                </Text>
+                                <Text style={styles.list}>
+                                    •  <Text style={styles.bold}>Equipamentos Extras:</Text> Granadas de fumaça.
+                                </Text>
+                                <Text style={styles.list}>
+                                    • <Text style={styles.bold}>Rádio Tático:</Text> Comunicação com a equipe em um raio de até 100 metros.
                                 </Text>
                             </View>
                         </View>
@@ -400,21 +448,21 @@ const styles = StyleSheet.create({
         letterSpacing: 5,
     },
     subTitle: {
-        color: colors.primary,
+        color: colors.lightGreen,
         fontWeight: "bold",
         paddingHorizontal: 10,
         marginBottom: 5,
         borderBottomWidth: 2,
         fontSize: 16,
-        borderBottomColor: colors.primary
+        borderBottomColor: colors.lightGreen
     },
     subItem: {
-        color: colors.secondary,
+        color: colors.waterGreen,
         fontWeight: "bold",
         marginBottom: 5,
         borderBottomWidth: 2,
         fontSize: 12,
-        borderBottomColor: colors.secondary
+        borderBottomColor: colors.waterGreen
     },
     text: {
         color: "#FFF",
@@ -440,7 +488,7 @@ const styles = StyleSheet.create({
     },
     unique: {
         fontWeight: 'bold',
-        color: colors.primary,
+        color: colors.lightGreen,
         fontSize: 16,
         paddingBottom: 10
     },
@@ -451,7 +499,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     button: {
-        backgroundColor: colors.primary,
+        backgroundColor: colors.lightGreen,
         width: 100,
         height: 60,
         padding: 10,
@@ -497,7 +545,7 @@ const styles = StyleSheet.create({
     },
     header: {
         fontWeight: 'bold',
-        backgroundColor: colors.primary,
+        backgroundColor: colors.lightGreen,
         paddingVertical: 10,
     },
 })

@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { Animated, StyleSheet, Text, View } from 'react-native';
 
-const Bar = ({ current, max, color, label }: {
+const Bar = ({ current, max, color, label, size = 7 }: {
     current: number;
     max: number;
     color: string;
     label: string
+    size?: number
 }) => {
     const widthAnim = useRef(new Animated.Value(0)).current;
     useEffect(() => {
@@ -21,7 +22,7 @@ const Bar = ({ current, max, color, label }: {
     return (
         <View style={styles.container}>
             <View style={styles.barContainer}>
-                <View style={styles.bar}>
+                <View style={[styles.bar, { height: size }]}>
                     <View style={{ width: '100%', height: 20, backgroundColor: '#404040' }}>
                         <Animated.View
                             style={[
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         alignItems: 'center',
-        marginTop: 10
+        marginTop: 5
     },
     sliderContainer: {
         width: '100%',
@@ -64,7 +65,6 @@ const styles = StyleSheet.create({
     },
     bar: {
         width: '100%',
-        height: 6,
         backgroundColor: '#404040',
         borderRadius: 5,
         overflow: 'hidden',

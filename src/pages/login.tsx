@@ -71,7 +71,7 @@ export default function Login() {
                     <View style={styles.content}>
                         <Text style={styles.title}>Visor O.N.I.X</Text>
                         <Text style={styles.password}>{value}</Text>
-                        <TouchableOpacity style={{ backgroundColor: colors.primary, padding: 5, borderRadius: 7 }} onPress={() => navigation.navigate("Docs")}>
+                        <TouchableOpacity style={{ backgroundColor: colors.lightGreen, padding: 5, borderRadius: 7 }} onPress={() => navigation.navigate("Docs")}>
                             <Text style={{ color: "#FFF", fontWeight: "bold" }}>
                                 Documentação
                             </Text>

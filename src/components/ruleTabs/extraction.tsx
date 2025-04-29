@@ -103,21 +103,21 @@ const styles = StyleSheet.create({
         letterSpacing: 5,
     },
     subTitle: {
-        color: colors.primary,
+        color: colors.lightGreen,
         fontWeight: "bold",
         paddingHorizontal: 10,
         marginBottom: 5,
         borderBottomWidth: 2,
         fontSize: 16,
-        borderBottomColor: colors.primary
+        borderBottomColor: colors.lightGreen
     },
     subItem: {
-        color: colors.secondary,
+        color: colors.waterGreen,
         fontWeight: "bold",
         marginBottom: 5,
         borderBottomWidth: 2,
         fontSize: 12,
-        borderBottomColor: colors.secondary
+        borderBottomColor: colors.waterGreen
     },
     text: {
         color: "#FFF",

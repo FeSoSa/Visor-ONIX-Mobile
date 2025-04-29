@@ -30,6 +30,7 @@ export default function ItemsTab() {
                                     ['Colete leve', '20 de Dano', '4 Cartuchos e 1 granada', 'Ideal para mobilidade, oferece boa proteção contra armas de baixo calibre, mas frágil contra fuzis.'],
                                     ['Colete Médio', '32 de Dano', '5 Cartuchos e 2 granadas', 'Proteção balanceada, sendo eficaz contra fuzis de médio calibre, mas com limitação em impacto contínuo de fuzis pesados.'],
                                     ['Colete Pesado', '42 de Dano', '6 Cartuchos e 2 granadas', 'Focado em absorver impactos de alta intensidade, mas reduz a mobilidade. Ideal para enfrentamentos pesados.'],
+                                    ['Traje Titan', '60 de Dano', '6 Cartuchos e 2 granadas', 'Um traje de combate avançado feito com titânio e fibra de carbono reforçada. Equipado com um exoesqueleto integrado, concede +1 em qualquer rolagem de teste, oferecendo força e precisão sobre-humanas no campo de batalha.'],
                                     ['Coleta Ultra-Pesado', '80 de Dano', '', 'Extremamente pesado perdendo toda mobilidade, porém oferece proteção para todos tipos de calibre. Imune a calibres pequenos'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
@@ -84,13 +85,13 @@ export default function ItemsTab() {
                                 </View>
                                 {[
                                     ['Alimento', 'Recupera 1D6 pontos de vida.'],
-                                    ['Kit Médico', 'Recupera 20 pontos de vida.'],
-                                    ['Analgésico', 'Reduz o dano recebido em 50% por 3 turnos.'],
-                                    ['Injeção de adrenalina', 'Aumenta +1 na rolagem de algum aliado por 2 turnos. 1 vez por combate'],
+                                    ['Kit Médico', 'Recupera 50% de vida.'],
+                                    ['Analgésico', 'Reduz o dano recebido em 30% por 2 turnos.'],
+                                    ['Injeção de adrenalina', 'Aumenta +2 na rolagem de algum aliado no próximo turno.'],
                                     ['Bandagem', 'Recupera 1D10 pontos de vida.'],
                                     ['Binóculos', 'Permite enxergar longas distâncias.'],
-                                    ['Caixa de Munição', 'Recarrega até 6 cartuchos vazios fora de combate.'],
-                                    ['Rádio Tático', 'Permite comunicação em um raio de até 50 metros.'],
+                                    ['Caixa de Munição', 'Recarrega até 5 cartuchos vazios fora de combate.'],
+                                    ['Rádio Tático', 'Permite comunicação em um raio de até 100 metros.'],
                                     ['Placas Balísticas', 'Repara o colete até o nível médio, se possível.'],
                                     ['Sinalizador', 'Chama o helicóptero se estiver perto, mas também atrai inimigos.']
                                 ].map((row, index) => (
@@ -119,21 +120,21 @@ const styles = StyleSheet.create({
         letterSpacing: 5,
     },
     subTitle: {
-        color: colors.primary,
+        color: colors.lightGreen,
         fontWeight: "bold",
         paddingHorizontal: 10,
         marginBottom: 5,
         borderBottomWidth: 2,
         fontSize: 16,
-        borderBottomColor: colors.primary
+        borderBottomColor: colors.lightGreen
     },
     subItem: {
-        color: colors.secondary,
+        color: colors.waterGreen,
         fontWeight: "bold",
         marginBottom: 5,
         borderBottomWidth: 2,
         fontSize: 12,
-        borderBottomColor: colors.secondary
+        borderBottomColor: colors.waterGreen
     },
     text: {
         color: "#FFF",
@@ -159,7 +160,7 @@ const styles = StyleSheet.create({
     },
     unique: {
         fontWeight: 'bold',
-        color: colors.primary,
+        color: colors.lightGreen,
         fontSize: 16,
         paddingBottom: 10
     },
@@ -170,7 +171,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     button: {
-        backgroundColor: colors.primary,
+        backgroundColor: colors.lightGreen,
         width: 100,
         height: 60,
         padding: 10,
@@ -216,7 +217,7 @@ const styles = StyleSheet.create({
     },
     header: {
         fontWeight: 'bold',
-        backgroundColor: colors.primary,
+        backgroundColor: colors.lightGreen,
         paddingVertical: 10,
     },
 })

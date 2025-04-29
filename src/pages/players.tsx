@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
@@ -15,7 +16,7 @@ export default function Players() {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const storedUser = await AsyncStorage.getItem("user");
+            const storedUser = await AsyncStorage.getItem('user');
             if (storedUser) {
                 const parsedUser = JSON.parse(storedUser);
                 setUser(parsedUser);
@@ -26,51 +27,53 @@ export default function Players() {
     }, []);
 
     function getPlayers(registry: string) {
-        if (!registry) return;
+        if (!registry) { return; }
         api.get(`player/user/${registry}`).then((resp) => {
             if (resp.data) {
                 setPlayers(resp.data);
                 console.log(resp.data);
             }
-        }).catch(err => console.error("Erro ao buscar players:", err));
+        }).catch(err => console.error('Erro ao buscar players:', err));
     }
 
-    function play(player) {
-        AsyncStorage.setItem("player", JSON.stringify(player));
-        navigation.navigate("Player", { registry: player.registry }); // Corrigido para usar parâmetros corretamente
+    function play(player: IPlayer) {
+        if (player.status == "ACTIVE") {
+            AsyncStorage.setItem('player', JSON.stringify(player));
+            navigation.navigate('Player', { registry: player.registry }); // Corrigido para usar parâmetros corretamente
+        }
     }
 
     function logout() {
         AsyncStorage.clear();
-        navigation.navigate("Login"); // Certifique-se de que "Login" está registrado nas rotas
+        navigation.navigate('Login'); // Certifique-se de que "Login" está registrado nas rotas
     }
 
     return (
         <Layout>
             <View style={{ flex: 1 }}>
                 <View style={{
-                    backgroundColor: "#000",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    alignItems: "center",
+                    backgroundColor: '#000',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
                     paddingHorizontal: 30,
-                    paddingVertical: 10
+                    paddingVertical: 10,
                 }}>
-                    <Text style={{ color: "#FFF", fontSize: 20, fontWeight: "bold" }}>
-                        {user ? `Bem-vindo ${user.name}` : "Carregando..."}
+                    <Text style={{ color: '#FFF', fontSize: 20, fontWeight: 'bold' }}>
+                        {user ? `Bem-vindo ${user.name}` : 'Carregando...'}
                     </Text>
                     <TouchableOpacity
                         style={{ backgroundColor: colors.red, paddingHorizontal: 30, paddingVertical: 10, borderRadius: 10 }}
                         onPress={logout} // Agora o botão chama logout()
                     >
-                        <Text style={{ color: "#FFF" }}>Sair</Text>
+                        <Text style={{ color: '#FFF' }}>Sair</Text>
                     </TouchableOpacity>
                 </View>
 
-                <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginVertical: "auto", gap: 20, padding: 20 }}>
+                <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginVertical: 'auto', gap: 20, padding: 20 }}>
                     {players.map((player, index) => (
-                        <TouchableOpacity key={index} onPress={() => play(player)} style={[styles.card, player.status == "ACTIVE" ? { borderColor: colors.primary } : { borderColor: colors.red }]}>
-                            <Text style={[styles.codename, player.status == "ACTIVE" ? { backgroundColor: colors.primary } : { backgroundColor: colors.red }]}>
+                        <TouchableOpacity key={index} onPress={() => play(player)} style={[styles.card, player.status == 'ACTIVE' ? { borderColor: colors.lightGreen } : { borderColor: colors.red }]}>
+                            <Text style={[styles.codename, player.status == 'ACTIVE' ? { backgroundColor: colors.lightGreen } : { backgroundColor: colors.red }]}>
                                 {player.codename}
                             </Text>
 
@@ -79,13 +82,13 @@ export default function Players() {
                                     <Image source={{ uri: `${constants.driveURL}${player.photo}` }} style={styles.image} />
                                 </View>
 
-                                <View style={[styles.details, player.status == "ACTIVE" ? { borderColor: colors.primary } : { borderColor: colors.red }]}>
+                                <View style={[styles.details, player.status == 'ACTIVE' ? { borderColor: colors.lightGreen } : { borderColor: colors.red }]}>
                                     <Text style={styles.text}>Nome: <Text style={styles.bold}>{player.name}</Text></Text>
                                     <Text style={styles.text}>Registro: <Text style={styles.bold}>{player.registry}</Text></Text>
                                     <Text style={styles.text}>Classe: <Text style={styles.bold}>{player.class}</Text></Text>
 
-                                    <Text style={[styles.status, player.status === "ACTIVE" ? { color: colors.green } : { color: colors.red }]}>
-                                        {player.status === "ACTIVE" ? "ATIVO" : "DESATIVADO"}
+                                    <Text style={[styles.status, player.status === 'ACTIVE' ? { color: colors.green } : { color: colors.red }]}>
+                                        {player.status === 'ACTIVE' ? 'ATIVO' : 'DESATIVADO'}
                                     </Text>
                                 </View>
                             </View>
@@ -102,46 +105,46 @@ const styles = StyleSheet.create({
         flex: 1,
         borderWidth: 4,
         borderRadius: 10,
-        backgroundColor: colors.gray
+        backgroundColor: colors.gray,
     },
     codename: {
-        textAlign: "center",
+        textAlign: 'center',
         fontSize: 18,
         padding: 10,
-        backgroundColor: "#111",
-        color: "white",
-        fontWeight: "bold",
+        backgroundColor: '#111',
+        color: 'white',
+        fontWeight: 'bold',
     },
     grid: {
-        flexDirection: "row",
-        width: "100%",
+        flexDirection: 'row',
+        width: '100%',
         padding: 10,
     },
     text: {
-        color: "#ccc"
+        color: '#ccc',
     },
     image: {
         width: 100,
         height: 100,
-        resizeMode: "contain",
+        resizeMode: 'contain',
     },
     details: {
         flex: 2,
         paddingHorizontal: 10,
         borderLeftWidth: 4,
         borderRadius: 5,
-        borderColor: "#111",
+        borderColor: '#111',
     },
     center: {
-        textAlign: 'center'
+        textAlign: 'center',
     },
     bold: {
-        fontWeight: "bold",
+        fontWeight: 'bold',
     },
     status: {
-        textAlign: "center",
+        textAlign: 'center',
         fontSize: 20,
-        fontWeight: "bold",
+        fontWeight: 'bold',
         marginTop: 10,
     },
 });

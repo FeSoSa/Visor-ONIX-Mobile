@@ -39,7 +39,7 @@ export default function SettingTab({ game, player }: PlayerProps) {
 
 const styles = StyleSheet.create({
     button: {
-        backgroundColor: colors.primary,
+        backgroundColor: colors.lightGreen,
         width: 100,
         height: 60,
         padding: 10,

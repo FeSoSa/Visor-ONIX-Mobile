@@ -1,6 +1,6 @@
 import { useRoute } from '@react-navigation/native';
 import React, { ReactNode, useEffect, useState } from 'react';
-import { Dimensions, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { AppState, Dimensions, StyleSheet, TouchableOpacity, View } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import { IGame, IPlayer } from '../../typing.d.ts';
@@ -21,25 +21,32 @@ export default function Player() {
     const [menu, setMenu] = useState('map');
     const [player, setPlayer] = useState<IPlayer | null>(null);
     const [game, setGame] = useState<IGame | undefined>();
-    const { message } = useWebSocket();
+    const { message, connect } = useWebSocket();
 
-    // Exemplo de uso da função dependendo do conteúdo das mensagens
+    const [appState, setAppState] = useState(AppState.currentState);
     useEffect(() => {
-        console.log(message)
+        const subscription = AppState.addEventListener('change', nextAppState => {
+            if (appState.match(/inactive|background/) && nextAppState === 'active') {
+                connect(); // reconecta ao voltar
+            }
+            setAppState(nextAppState);
+        });
+        return () => {
+            subscription.remove();
+        };
+    }, [appState, connect]);
+    useEffect(() => {
         if (message) {
-            console.log(message)
             try {
                 const obj = JSON.parse(message);
-                console.log(obj)
-                if (obj.event === "player-updated") {
+                if (obj.event === 'player-updated') {
                     getPlayer(registry);
                 }
-                else if (obj.event === "game-updated") {
+                else if (obj.event === 'game-updated') {
                     getGame();
                 }
             } catch (e) {
-                console.log("Mensagem recebida (não JSON):", message);
-            };
+            }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [message]);
