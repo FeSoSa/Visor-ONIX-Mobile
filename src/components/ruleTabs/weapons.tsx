@@ -157,14 +157,14 @@ export default function WeaponTab() {
                                 {/* Cabeçalho da Tabela */}
                                 <View style={[styles.rowTable, styles.header]}>
                                     <Text style={styles.cell}>Tipo de Calibre</Text>
-                                    <Text style={styles.cell}>Pequeno</Text>
+                                    <Text style={styles.cell}>Leve</Text>
                                     <Text style={styles.cell}>Médio</Text>
                                     <Text style={styles.cell}>Tambor</Text>
                                     <Text style={styles.cell}>Pesado</Text>
                                     <Text style={styles.cell}>Explosivo</Text>
                                 </View>
                                 {[
-                                    ['Dano', '2', '4', '6', '20', '30'],
+                                    ['Dano', '0', '2', '3', '4', '5'],
                                     ['Tipo de Dano', 'Perfuração', 'Perfuração', 'Perfuração', 'Perfuração', 'Explosivo'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
@@ -188,10 +188,10 @@ export default function WeaponTab() {
                                     <Text style={styles.cell}>Valor</Text>
                                 </View>
                                 {[
-                                    ['Tipo de Calibre', 'Pequeno'],
-                                    ['Dano base', '2'],
+                                    ['Tipo de Calibre', 'Leve'],
+                                    ['Dano base', '3'],
                                     ['Penetração', 'Baixa'],
-                                    ['Capacidade do Cartucho', '10 balas'],
+                                    ['Capacidade do Cartucho', '12 balas'],
                                     ['Disparo', 'Semi-automático'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
@@ -206,7 +206,7 @@ export default function WeaponTab() {
                         }
                         <View ref={sectionRefs.sec3} style={{ marginBottom: 15 }}>
                             <View >
-                                <Text style={styles.center}>Desert Eagle (Pistola de Elite)</Text>
+                                <Text style={styles.center}>Desert Eagle / Taurus</Text>
                             </View>
                             <View style={styles.container}>
                                 {/* Cabeçalho da Tabela */}
@@ -218,7 +218,7 @@ export default function WeaponTab() {
                                     ['Tipo de Calibre', 'Médio'],
                                     ['Dano base', '3'],
                                     ['Penetração', 'Média'],
-                                    ['Capacidade do Cartucho', '7 balas'],
+                                    ['Capacidade do Cartucho', '8 balas'],
                                     ['Disparo', 'Semi-automático'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
@@ -243,10 +243,10 @@ export default function WeaponTab() {
                                 </View>
                                 {[
                                     ['Tipo de Calibre', 'Médio'],
-                                    ['Dano base', '5'],
+                                    ['Dano base', '6'],
                                     ['Penetração', 'Média'],
-                                    ['Capacidade do Cartucho', '24 balas'],
-                                    ['Disparo', 'Automático '],
+                                    ['Capacidade do Cartucho', '30 balas'],
+                                    ['Disparo', 'Automático'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -270,9 +270,9 @@ export default function WeaponTab() {
                                 </View>
                                 {[
                                     ['Tipo de Calibre', 'Pesado'],
-                                    ['Dano base', '20'],
+                                    ['Dano base', '35'],
                                     ['Penetração', 'Alta'],
-                                    ['Capacidade do Cartucho', '7 balas'],
+                                    ['Capacidade do Cartucho', '5 balas'],
                                     ['Disparo', 'Único'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
@@ -297,7 +297,7 @@ export default function WeaponTab() {
                                 </View>
                                 {[
                                     ['Tipo de Calibre', 'Pesado'],
-                                    ['Dano base', '5'],
+                                    ['Dano base', '7'],
                                     ['Penetração', 'Média'],
                                     ['Capacidade do Cartucho', '7 balas'],
                                     ['Disparo', 'Semi-Automático'],
@@ -324,8 +324,8 @@ export default function WeaponTab() {
                                 </View>
                                 {[
                                     ['Tipo de Calibre', 'Médio'],
-                                    ['Dano base', '4'],
-                                    ['Penetração', 'Média'],
+                                    ['Dano base', '3'],
+                                    ['Penetração', 'Médio'],
                                     ['Capacidade do Cartucho', '25 balas'],
                                     ['Disparo', 'Automático '],
                                 ].map((row, index) => (
@@ -350,7 +350,7 @@ export default function WeaponTab() {
                                     <Text style={styles.cell}>Valor</Text>
                                 </View>
                                 {[
-                                    ['Tipo de Calibre', 'Pequeno'],
+                                    ['Tipo de Calibre', 'Leve'],
                                     ['Dano base', '3'],
                                     ['Penetração', 'Baixa'],
                                     ['Capacidade do Cartucho', '30 balas'],
@@ -377,11 +377,11 @@ export default function WeaponTab() {
                                     <Text style={styles.cell}>Valor</Text>
                                 </View>
                                 {[
-                                    ['Tipo de Calibre', 'Médio'],
-                                    ['Dano base', '4'],
+                                    ['Tipo de Calibre', 'Leve'],
+                                    ['Dano base', '3'],
                                     ['Penetração', 'Média'],
                                     ['Capacidade do Cartucho', '80 balas'],
-                                    ['Disparo', 'Automático '],
+                                    ['Disparo', 'Automático'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -405,9 +405,9 @@ export default function WeaponTab() {
                                 </View>
                                 {[
                                     ['Tipo de Calibre', 'Tambor'],
-                                    ['Dano base', '7'],
+                                    ['Dano base', '8'],
                                     ['Penetração', 'Média'],
-                                    ['Capacidade', '8 cartuchos'],
+                                    ['Capacidade', '12 cartuchos'],
                                     ['Disparo', 'Dispersão'],
                                     ['Observação', 'A shotgun não usa cartuchos de munição no colete e sim balas avulsas, cada capacidade de cartucho no colete é equivalente a 8 balas'],
                                 ].map((row, index) => (
@@ -433,7 +433,7 @@ export default function WeaponTab() {
                                 </View>
                                 {[
                                     ['Tipo de Calibre', 'Explosiva'],
-                                    ['Dano base', '15'],
+                                    ['Dano base', '35'],
                                     ['Penetração', 'Alta'],
                                     ['Capacidade do Cartucho', '1 Granada especial'],
                                     ['Disparo', 'Único '],
@@ -460,7 +460,7 @@ export default function WeaponTab() {
                                 </View>
                                 {[
                                     ['Tipo de Calibre', 'Pesado'],
-                                    ['Dano base', '25'],
+                                    ['Dano base', '30'],
                                     ['Penetração', 'Muito Alta'],
                                     ['Capacidade do Cartucho', '3 balas'],
                                     ['Disparo', 'Único'],
@@ -487,7 +487,7 @@ export default function WeaponTab() {
                                 </View>
                                 {[
                                     ['Tipo de Calibre', 'Elétrico'],
-                                    ['Dano base', '60'],
+                                    ['Dano base', '40'],
                                     ['Penetração', 'Muito Alta'],
                                     ['Capacidade do Cartucho', '2 cargas'],
                                     ['Disparo', 'Único'],
@@ -504,19 +504,24 @@ export default function WeaponTab() {
                         }
                         <View ref={sectionRefs.sec11} style={{ marginBottom: 15 }}>
                             <View >
-                                <Text style={styles.center}>Modificadores de Mira</Text>
+                                <Text style={styles.center}>Modificadores</Text>
                             </View>
                             <View style={styles.container}>
                                 {/* Cabeçalho da Tabela */}
                                 <View style={[styles.rowTable, styles.header]}>
-                                    <Text style={styles.cell}>Tipo de Mira</Text>
-                                    <Text style={styles.cell}>Modificador de Precisão</Text>
+                                    <Text style={styles.cell}>Modificador</Text>
+                                    <Text style={styles.cell}>Descrição</Text>
                                 </View>
                                 {[
-                                    ['Scope Acog (2x)', '+1'],
-                                    ['Scope Acog (4x)', '+2'],
-                                    ['Scope Termal', '+2 '],
-                                    ['Scope de Sniper (12x)', 'Exclusivo para Sniper'],
+                                    ['Scope x2', 'Aumenta a precisão em +1'],
+                                    ['Scope x4', 'Aumenta a precisão em +2'],
+                                    ['Scope x12', 'Transforma a arma em uma Sniper leve'],
+                                    ['Scope x24', 'Transforma a arma em uma Sniper Pesada'],
+                                    ['Scope Termal', 'Sem redução de precisão por obstáculos'],
+                                    ['Freio de boca', 'Aumenta o dano da arma em +1'],
+                                    ['Silenciador', 'Aumenta a precisão da arma em +1 e diminui o som causado'],
+                                    ['Cabo vertical', 'Aumenta a precisão da arma em +1'],
+                                    ['Presas de Titânio', 'Presas feitas de titânio, equipáveis por animais caninos. Aumentam o dano em ataques corpo a corpo. em +2'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (

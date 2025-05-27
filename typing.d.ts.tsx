@@ -8,7 +8,6 @@ export interface IContext {
     authenticated: boolean,
     setAuthenticated: Dispatch<SetStateAction<boolean>>
 }
-
 export interface IUser {
     id: string,
     registry: string,
@@ -17,38 +16,55 @@ export interface IUser {
     role: 'admin' | 'player',
     createdAt: Date,
 }
-
 export interface Magazines {
     primary: MagazineSlot[]
     secondary: MagazineSlot[]
 }
 export interface MagazineSlot {
     bullets: number;
-    type: 'H' | 'M' | 'L' | 'I';
+    type: gunTypes;
     capacity: number;
     _id?: string
 }
 export interface Armor {
-    desc: string;
-    type: 'H' | 'M' | 'L' | 'SH' | 'T';
+    type: armorTypes;
     hp: number;
     maxHp: number;
     slots: number;
-    name: string
+    pocket: number;
+    name: string;
     url: string
+    desc: string
 }
 export interface Guns {
     primary: Gun
     secondary: Gun
 }
 export interface Gun {
-    damage: number;
     url: string;
     name: string;
+    desc: string
+
     capacity: number;
     magazineSelected: number;
-    type: 'H' | 'M' | 'L' | 'I' | 'E' | 'S';
-    mod: number;
+    damage: number;
+    type: gunTypes;
+    attachment: Attachment[];
+}
+export interface Attachment {
+    url: string;
+    name: string;
+    desc: string
+    mod: number
+    damage: number
+}
+export interface Companion {
+    name: string;
+    desc: string;
+    maxHp: number;
+    hp: number;
+    url: string;
+    usable: boolean
 }
 export interface Item {
     _id?: string;
@@ -62,40 +78,38 @@ export interface Item {
     rechargeable?: boolean;
     value?: number
 }
-export interface Companion {
-    _id?: string;
-    name: string;
-    desc?: string;
-    maxHp: number;
-    hp: number;
-    usable: boolean
-    url: string;
-}
-export type PlayerClass = 'sniper' | 'assault' | 'engeneer' | 'medic' | 'inteligence' | 'hunter' | 'defender';
 export interface IPlayer {
-    nationality: string;
-    round: number;
     _id: string,
     userRegistry: string,
     registry: string,
-
     name: string,
     codename: string,
     photo: string,
     status: string,
-    class: PlayerClass,
+    class: playerClass,
 
+    round: number;
+    nationality: string
     gunSelected: 'primary' | 'secondary'
-    guns: Guns;
-    magazines: Magazines;
-    companion: Companion;
-
     maxHp: number;
     hp: number;
     armor: Armor;
-
+    magazines: Magazines;
+    guns: Guns;
+    companion: Companion
     utilitaries: Item[];
     items: Item[];
+}
+export interface IEnemie {
+    _id?: string,
+    name: string,
+    maxHp: number;
+    hp: number;
+    armor: Armor;
+    gun: Gun
+    magazines: MagazineSlot[];
+    items: Item[];
+    obs: string
 }
 export interface OperatorData {
     gunSelected: 'primary' | 'secondary'
@@ -104,14 +118,17 @@ export interface OperatorData {
     armor: Armor;
     magazines: Magazines;
     guns: Guns;
+    companion: Companion
     utilitaries: Item[];
     items: Item[];
 }
 export interface IGame {
     draw?: string[];
     combat: boolean
+
     showCompleteMap: boolean
     dbImages: any[]
+
     ruinedMap: string
     completeMap: string
     others: any[]
@@ -120,3 +137,7 @@ export interface IViews {
     image: string,
     label: string
 }
+
+export type gunTypes = 'light' | 'medium' | 'heavy' | 'shell' | 'explosive' | 'eletric' | 'shield'
+export type armorTypes = 'light' | 'medium' | 'heavy' | 'super-heavy' | 'titan' | 'none' | 'improvised'
+export type playerClass = 'sniper' | 'assault' | 'engeneer' | 'medic' | 'inteligence' | 'hunter' | 'vanguard'

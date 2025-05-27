@@ -4,7 +4,7 @@ import React from 'react';
 import { Dimensions, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Popover from 'react-native-popover-view';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
-import { IGame, IPlayer } from '../../typing.d.ts';
+import { Attachment, IGame, IPlayer } from '../../typing.d.ts';
 import api from '../utils/api.tsx';
 import colors from '../utils/colors.tsx';
 import constants from '../utils/constants.tsx';
@@ -59,11 +59,11 @@ export default function WeaponCard({
                     <TouchableOpacity onPress={changeWeapon} onLongPress={showPopover} >
                         <View style={[
                             styles.imageContainer,
-                            { height: weapon.type !== 'S' ? height * 0.2 : '100%' },
+                            { height: weapon.type !== 'shield' ? height * 0.2 : '100%' },
                         ]
                         } >
                             {
-                                (player.guns.primary.type === 'S' || player.gunSelected === type) &&
+                                (player.guns.primary.type === 'shield' || player.gunSelected === type) &&
                                 <View style={styles.itemQuantity}>
                                     <FontAwesome6 name="check" size={10} color="#FFF" />
                                 </View>
@@ -78,13 +78,24 @@ export default function WeaponCard({
                 )}>
                     <View style={styles.popoverContent}>
                         <Text style={styles.weaponName}>{weapon.name}</Text>
-                        <Text style={styles.weaponType}>Tipo: {weapon.type}</Text>
-                        <Text style={styles.weaponCapacity}>Dano: {weapon.damage}</Text>
-                        <Text style={styles.weaponCapacity}>Capacidade: {weapon.capacity}</Text>
+                        <Text style={styles.weaponText}>Dano: {weapon.damage} / {weapon.type}</Text>
+                        <Text style={styles.weaponText}>Capacidade: {weapon.capacity}</Text>
+                        <Text>{weapon.desc}</Text>
+
+                        <View>
+                            {
+                                weapon.attachment.map((it: Attachment) => (
+                                    <View>
+                                        <Text style={styles.weaponName}>{it.name}</Text>
+                                        <Text>{it.desc}</Text>
+                                    </View>
+                                ))
+                            }
+                        </View>
                     </View>
                 </Popover>
 
-                {weapon.type !== 'S' &&
+                {weapon.type !== 'shield' &&
                     <View style={styles.magazinesContainer}>
                         <FlatList
                             numColumns={6}
@@ -98,7 +109,7 @@ export default function WeaponCard({
                                             styles.magazineItem,
                                             {
                                                 height: 50,
-                                                backgroundColor: item.bullets > 0 ? colors.black : player.armor.type === 'T' ? colors.vibrantRed : colors.red,
+                                                backgroundColor: item.bullets > 0 ? colors.black : player.armor.type === 'titan' ? colors.vibrantRed : colors.red,
                                             },
                                         ]}
                                         onPress={() => changeMagazine(index)}
@@ -106,13 +117,13 @@ export default function WeaponCard({
                                         <View
                                             style={{
                                                 width: '100%',
-                                                backgroundColor: index === magazineIndex ? player.armor.type === 'T' ? colors.orange : colors.green : player.armor.type === 'T' ? colors.yellow : colors.lightGreen,
+                                                backgroundColor: index === magazineIndex ? player.armor.type === 'titan' ? colors.orange : colors.green : player.armor.type === 'titan' ? colors.yellow : colors.lightGreen,
                                                 height: `${fillPercentage * 100}%`, // Define a altura proporcional
                                                 position: 'absolute',
                                                 bottom: 0,
                                             }}
                                         />
-                                        <Text style={{ fontWeight: 'bold', color: player.armor.type === 'T' ? colors.black : colors.white }}>
+                                        <Text style={{ fontWeight: 'bold', color: player.armor.type === 'titan' ? colors.black : colors.white }}>
                                             {item.bullets}/{item.capacity}
                                         </Text>
                                     </TouchableOpacity>
@@ -153,19 +164,21 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.8,
         shadowRadius: 5,
+        width: width * 0.4
     },
     weaponName: {
         fontSize: 16,
         fontWeight: 'bold',
         color: '#22c55e',
     },
-    weaponType: {
+    weaponText: {
         fontSize: 14,
         fontWeight: 'bold',
     },
-    weaponCapacity: {
-        fontSize: 14,
+    desc: {
+        fontSize: 16,
         fontWeight: 'bold',
+        color: '#22c55e',
     },
     magazinesContainer: {
         height: '100%',

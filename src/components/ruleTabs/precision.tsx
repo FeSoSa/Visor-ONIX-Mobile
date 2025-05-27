@@ -384,9 +384,8 @@ export default function PrecisionTab() {
                                     <Text style={styles.cell}>Erros (Balas Perdida)</Text>
                                 </View>
                                 {[
-                                    ['1 - 5', '0', '1'],
-                                    ['6 - 10', '1 tiro / 2', '0'],
-                                    ['11 - 16', '1 tiro / 1.15', '0'],
+                                    ['1 - 9', '0', '1'],
+                                    ['10 - 16', '1 tiro  |  D/2', '0'],
                                     ['17 - 19', '1 tiro letal', '0'],
                                     ['20', '1 Fatal (HS)', '0'],
                                 ].map((row, index) => (
@@ -402,7 +401,7 @@ export default function PrecisionTab() {
 
                                 {[
                                     ['1 - 8', '0', '1'],
-                                    ['9 - 13', '1 Tiro / 1.5', '0'],
+                                    ['9 - 13', '1 Tiro / 2', '0'],
                                     ['14 - 16', '1 Tiro letal', '0'],
                                     ['17 - 20', '1 Tiro fatal', '0'],
                                 ].map((row, index) => (
@@ -516,11 +515,10 @@ export default function PrecisionTab() {
                                 {/* Cabeçalho da Tabela */}
                                 <View style={[styles.rowTable, styles.header]}>
                                     <Text style={styles.cell}>Rolagem (D20 + Mira)</Text>
-                                    <Text style={styles.cell}>Acertos</Text>
-                                    <Text style={styles.cell}>Erros (Balas Perdida)</Text>
+                                    <Text style={styles.cell}>Resultado</Text>
                                 </View>
                                 {[
-                                    ['0 - 14m', 'Sem sucesso'],
+                                    ['0 - 14', 'Sem sucesso'],
                                     ['15 - 17', 'Letal'],
                                     ['18 - 20', 'Fatal'],
                                 ].map((row, index) => (

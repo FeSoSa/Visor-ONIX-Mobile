@@ -21,6 +21,23 @@ export default function PlayerTab({ game, player }: PlayerProps) {
     return (
         <View style={styles.container}>
             <View style={{ flex: 0.7, backgroundColor: colors.black, justifyContent: 'space-between' }}>
+
+
+                <View style={{ padding: 10 }}>
+                    <View style={styles.imageContainer} >
+                        <Image source={{ uri: `${constants.driveURL}${player.photo}` }} style={{ height: '100%', width: '100%', borderRadius: 5 }} />
+                    </View>
+                </View>
+
+                <View style={{ padding: 5 }}>
+                    <View style={styles.flagContainer} >
+                        <Image
+                            source={{ uri: `https://flagcdn.com/w320/${player.nationality ?? 'br'}.png` }}
+                            resizeMode="contain"
+                            style={{ height: '90%', width: '90%' }}
+                        />
+                    </View>
+                </View>
                 <View style={{ padding: 10 }}>
                     <Popover from={(sourceRef, showPopover) => (
                         <TouchableOpacity onPress={showPopover} >
@@ -39,20 +56,6 @@ export default function PlayerTab({ game, player }: PlayerProps) {
                             <Text style={styles.weaponCapacity}>{player.armor.desc}</Text>
                         </View>
                     </Popover>
-                </View>
-                <View style={{ padding: 5 }}>
-                    <View style={styles.flagContainer} >
-                        <Image
-                            source={{ uri: `https://flagcdn.com/w320/${player.nationality ?? 'br'}.png` }}
-                            resizeMode="contain"
-                            style={{ height: '90%', width: '90%' }}
-                        />
-                    </View>
-                </View>
-                <View style={{ padding: 10 }}>
-                    <View style={[styles.imageContainer, { backgroundColor: colors.gray, borderRadius: 5, justifyContent: 'center', alignItems: 'center' }]} >
-                        <Text style={{ color: colors.white, fontSize: 50 }}>{player.round ?? '-'}</Text>
-                    </View>
                 </View>
             </View>
 

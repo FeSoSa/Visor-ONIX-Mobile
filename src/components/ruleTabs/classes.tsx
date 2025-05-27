@@ -57,7 +57,7 @@ export default function ClassTab() {
                     <TouchableOpacity
                         style={styles.aside}
                         onPress={() => scrollToSection('sec7')}>
-                        <Text style={styles.asideText}><Text style={styles.bold}>Escudeiro</Text></Text>
+                        <Text style={styles.asideText}><Text style={styles.bold}>Vanguarda</Text></Text>
                     </TouchableOpacity>
                 </ScrollView>
             </View>
@@ -379,18 +379,18 @@ export default function ClassTab() {
                                 </Text>
                             </View>
                         </View>
-                        {//! --------------------------------- Escudeiro --------------------------------
+                        {//! --------------------------------- Vanguarda --------------------------------
                         }
                         <View style={styles.box} ref={sectionRefs.sec7}>
                             <Text style={styles.subTitle}>
-                                Escudeiro
+                                Vanguarda
                             </Text>
                             <View style={styles.subBox}>
                                 <Text style={styles.subItem}>
                                     Descrição Geral
                                 </Text>
                                 <Text style={styles.text}>
-                                    O Escudeiro é capaz de proteger aliados com seu escudo balístico, bloquear disparos de diferentes calibres e abrir espaço com empurrões estratégicos. Sua presença segura a linha de frente e reduz o dano recebido em equipe.
+                                    O Vanguarda é capaz de proteger aliados com seu escudo balístico, bloquear disparos de diferentes calibres e abrir espaço com empurrões estratégicos. Sua presença segura a linha de frente e reduz o dano recebido em equipe.
                                 </Text>
                                 <Text style={styles.subItem}>
                                     Habilidades Especiais
@@ -399,10 +399,10 @@ export default function ClassTab() {
                                     • Escudo: Usa um escudo blindado em vez de arma primaria capaz de defender aliados ou a si mesmo. Ler mecânica de escudo na aba Armas
                                 </Text>
                                 <Text style={styles.list}>
-                                    • Coragem: O Escudeiro recebe +2 em qualquer rolagem de d20 uma vez por combate.
+                                    • Coragem: O Vanguarda recebe +2 em qualquer rolagem de d20 uma vez por combate.
                                 </Text>
                                 <Text style={styles.list}>
-                                    • Empurrão: Ao rolar +10 no D20, o Escudeiro empurra o inimigo, atordoando-o por um turno. Durante esse tempo, qualquer aliado que atacar o inimigo recebe +2 de bônus na rolagem de ataque.
+                                    • Empurrão: Ao rolar +10 no D20, o Vanguarda empurra o inimigo, atordoando-o por um turno. Durante esse tempo, qualquer aliado que atacar o inimigo recebe +2 de bônus na rolagem de ataque.
                                 </Text>
                                 <Text style={styles.list}>
                                     • Resistente: Resistente a balas de calibre leve(+7 no D20)

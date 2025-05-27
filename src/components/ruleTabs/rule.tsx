@@ -36,16 +36,16 @@ export default function RuleTab() {
                 <View style={styles.box}>
                     <Text style={styles.subTitle}>Defesa de escudo</Text>
                     <Text style={styles.text}>
-                        Quando o Escudeiro tenta defender a si mesmo ou a um aliado de um ataque, ele rola d20.
+                        Quando o Vanguarda tenta defender a si mesmo ou a um aliado de um ataque, ele rola d20.
                     </Text>
                     <Text style={styles.list}>
                         • Dependendo do valor ele consegue defender completamente o dano, verifique na aba Precisão a tabela do escudo.
                     </Text>
                     <Text style={styles.list}>
-                        • Se o Escudeiro falhar ao proteger a si mesmo, recebe a redução de -30% no dano.
+                        • Se o Vanguarda falhar ao proteger a si mesmo, recebe a redução de -30% no dano.
                     </Text>
                     <Text style={styles.list}>
-                        • Se o Escudeiro falhar ao proteger um aliado, o dano é dividido entre Escudeiro e o Aliado, e ambos recebem a redução de -15% no dano.
+                        • Se o Vanguarda falhar ao proteger um aliado, o dano é dividido entre Vanguarda e o Aliado, e ambos recebem a redução de -15% no dano.
                     </Text>
                 </View>
                 <View style={styles.box}>

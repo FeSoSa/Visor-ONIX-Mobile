@@ -38,7 +38,7 @@ export default function CompanionCard({ player }: Props) {
                 </Popover>
 
                 <View style={{ paddingHorizontal: 10 }}>
-                    <Bar max={companion.maxHp} current={companion.hp} color={player.armor.type === 'T' ? colors.yellow : colors.lightGreen} label="HP" />
+                    <Bar max={companion.maxHp} current={companion.hp} color={player.armor.type === 'titan' ? colors.yellow : colors.lightGreen} label="HP" />
                 </View>
             </View>
         </>

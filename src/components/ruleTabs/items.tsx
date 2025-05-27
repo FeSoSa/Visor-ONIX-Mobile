@@ -31,7 +31,7 @@ export default function ItemsTab() {
                                     ['Colete Médio', '32 de Dano', '5 Cartuchos e 2 granadas', 'Proteção balanceada, sendo eficaz contra fuzis de médio calibre, mas com limitação em impacto contínuo de fuzis pesados.'],
                                     ['Colete Pesado', '42 de Dano', '6 Cartuchos e 2 granadas', 'Focado em absorver impactos de alta intensidade, mas reduz a mobilidade. Ideal para enfrentamentos pesados.'],
                                     ['Traje Titan', '60 de Dano', '6 Cartuchos e 2 granadas', 'Um traje de combate avançado feito com titânio e fibra de carbono reforçada. Equipado com um exoesqueleto integrado, concede +1 em qualquer rolagem de teste, oferecendo força e precisão sobre-humanas no campo de batalha.'],
-                                    ['Coleta Ultra-Pesado', '80 de Dano', '', 'Extremamente pesado perdendo toda mobilidade, porém oferece proteção para todos tipos de calibre. Imune a calibres pequenos'],
+                                    ['Coleta Ultra-Pesado', '80 de Dano', '1 Cartucho', 'Extremamente pesado perdendo toda mobilidade, porém oferece proteção para todos tipos de calibre. Imune a calibres pequenos'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -62,6 +62,7 @@ export default function ItemsTab() {
                                     ['Granada Flashbang', 'Cegueira', 'Nenhum', 'Até 4m', 'Causa cegueira temporária e desorientação nos inimigos próximos.'],
                                     ['Granada Sonora', 'Distração', 'Nenhum', '10m - 15m', 'Causa distrações sonoras no ambiente.'],
                                     ['Granada incendiária', 'Dano flamejante', '2D6', 'Até 6m', 'Causa dano flamejante em área, afeta personagens na área de impacto.'],
+                                    ['Mini P.E.M', 'Desativar eletrônicos', 'Nenhum', 'Até 2m', 'Pulso eletromagnético de curto alcance que desativa eletrônicos em um pequeno raio.'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -93,7 +94,14 @@ export default function ItemsTab() {
                                     ['Caixa de Munição', 'Recarrega até 5 cartuchos vazios fora de combate.'],
                                     ['Rádio Tático', 'Permite comunicação em um raio de até 100 metros.'],
                                     ['Placas Balísticas', 'Repara o colete até o nível médio, se possível.'],
-                                    ['Sinalizador', 'Chama o helicóptero se estiver perto, mas também atrai inimigos.']
+                                    ['Sinalizador', 'Chama o helicóptero se estiver perto, mas também atrai inimigos.'],
+
+                                    ['Máscara Tática de Gás', 'Filtra gases tóxicos e fumaça. Protege contra efeitos respiratórios.'],
+                                    ['VitaFlux-R', 'Composto injetável que concede +30 de vida temporária.'],
+                                    ['NanoDart-X', 'Lançador de mísseis miniaturizados acoplado ao braço. Capaz de atingir inimigos atrás de cobertura.'],
+                                    ['Spectra-V', 'Óculos avançados que permitem visão clara em meio a fumaça, gás e neblina.'],
+                                    ['Gancho Ascendente', 'Dispositivo portátil para escalada rápida em estruturas verticais.'],
+                                    ['Balas Especiais', 'Munição de alto desempenho, superior à pesada. +2 de dano por bala.'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
