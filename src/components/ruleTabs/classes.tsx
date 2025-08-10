@@ -184,7 +184,7 @@ export default function ClassTab() {
                                     • Sangue frio: Concede um bônus de +1 na rolagem do próximo ataque, consumindo uma ação principal.
                                 </Text>
                                 <Text style={styles.list}>
-                                    • Camuflagem: Permite ao Sniper se esconder no meio ambiente, ficando indetectável por inimigos por até 3 turnos.
+                                    • Camuflagem: Permite ao caçador se esconder no meio ambiente, ficando indetectável por inimigos por até 3 turnos.
                                 </Text>
                                 <Text style={styles.list}>
                                     • Controle do Lobo: Pode comandar o Lobo para agir de maneira tática (20 HP)
@@ -194,7 +194,8 @@ export default function ClassTab() {
                                     <Text style={styles.list}>• Mordida: Causa dano fixo 1d6, com chance de Sangramento na segunda mordida (+10 no 1d20).</Text>
                                     <Text style={styles.list}>• Distração: Força o inimigo a rolar com desvantagem para desviar no próximo turno. 1 vez a cada 2 turnos.</Text>
                                     <Text style={styles.list}>• Rastrear: Localiza inimigos ou pegadas recentes.</Text>
-                                    <Text style={styles.list}>• <Text style={styles.bold}>Sangramento:</Text> Aplica sangramento (1d4 por 3 turnos); seus inimigos causam +2 de dano no alvo.</Text>
+                                    <Text style={styles.list}>• Ataque surpresa: Recebe +2 de rolagem ao atacar com faca despercebido.</Text>
+                                    <Text style={styles.list}>• <Text style={styles.bold}>Sangramento:</Text> Aplica sangramento (1d4 por 3 turnos); fica em desvantagem tambem.</Text>
                                     <Text style={styles.list}>• <Text style={styles.bold}>Observação:</Text> O Lobo é frágil, com vida baixa. Se ferido, recua por 2 turnos e não pode ser curado em combate.</Text>
                                 </View>
 
@@ -248,7 +249,7 @@ export default function ClassTab() {
                                     • Olhar Analítico: Usa seu conhecimento técnico para analisar estruturas, equipamentos, veículos ou armas pesadas, identificando falhas ou pontos fracos.
                                 </Text>
                                 <View style={styles.subBox}>
-                                    <Text style={styles.list}>• Se tirar +10, recebe +2 de rolagem ao atacar o alvo analisado (por 2 turnos). 1 vez por combate
+                                    <Text style={styles.list}>• Se tirar +10, recebe +2 de rolagem ao atacar o alvo analisado (por 3 turnos). 1 vez por combate
                                     </Text>
                                     <Text style={styles.list}>• Só pode ser usada contra alvos mecânicos, blindados ou estruturas.
                                     </Text>
@@ -303,9 +304,9 @@ export default function ClassTab() {
                                     • Conhecimento do Corpo: Usa seu conhecimento anatômico para atacar pontos críticos. Recarrega após 3 turnos.
                                 </Text>
                                 <View style={styles.subBox}>
-                                    <Text style={styles.list}>• D20 ≥ 16: Causa 1d20 de dano em pontos fatais, deixa em desvantagem de -1
+                                    <Text style={styles.list}>• D20 ≥ 16: Causa 1d12 de dano em pontos fatais, deixa em desvantagem de -1
                                     </Text>
-                                    <Text style={styles.list}>• D20 ≥ 11: Causa 1d8 em ligamentos, deixa em desvantagem de -1
+                                    <Text style={styles.list}>• D20 ≥ 11: Causa 1d8 em ligamentos
                                     </Text>
                                     <Text style={styles.list}>• D20 ≤ 10: Causa 1d4 de dano normal.</Text>
                                 </View>

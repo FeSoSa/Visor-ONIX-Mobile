@@ -6,6 +6,7 @@ import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import { IGame, IPlayer } from '../../typing.d.ts';
 import InfoTab from '../components/tabs/infoTab.tsx';
 import MapTab from '../components/tabs/mapTab.tsx';
+import MegaCombatTab from '../components/tabs/megaCombat.tsx';
 import PlayerTab from '../components/tabs/playerTab.tsx';
 import SettingTab from '../components/tabs/settingTab.tsx';
 import api from '../utils/api';
@@ -52,11 +53,11 @@ export default function Player() {
     }, [message]);
 
     const tabContent: Record<string, ReactNode> = {
-        //second: <Second game={game!} />,
         map: <MapTab game={game!} />,
         player: <PlayerTab game={game!} player={player!} />,
         rules: <InfoTab />, // Substitua pelo conteúdo de "Enemies"
         settings: <SettingTab game={game!} player={player!} />, // Substitua pelo conteúdo de "Items"
+        megaCombat: <MegaCombatTab game={game!} />, // Substitua pelo conteúdo de "Items"
     };
 
     useEffect(() => {
@@ -98,6 +99,14 @@ export default function Player() {
                         onPress={() => setMenu('map')}>
                         <FontAwesome5 name="map-marked-alt" size={50} color='#FFF' />
                     </TouchableOpacity>
+                    {
+                        game?.megaCombat &&
+                        <TouchableOpacity
+                            style={[{ backgroundColor: "#aa0000" }, styles.icon]}
+                            onPress={() => setMenu('megaCombat')}>
+                            <FontAwesome5 name="skull" size={50} color='#FFF' />
+                        </TouchableOpacity>
+                    }
                     <TouchableOpacity
                         style={[{ backgroundColor: "#5EA500" }, styles.icon]}
                         onPress={() => setMenu('player')}>

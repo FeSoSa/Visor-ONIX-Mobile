@@ -110,6 +110,8 @@ export interface IEnemie {
     magazines: MagazineSlot[];
     items: Item[];
     obs: string
+
+    type?: 'special'
 }
 export interface OperatorData {
     gunSelected: 'primary' | 'secondary'
@@ -132,6 +134,8 @@ export interface IGame {
     ruinedMap: string
     completeMap: string
     others: any[]
+
+    megaCombat: boolean
 }
 export interface IViews {
     image: string,

@@ -155,8 +155,8 @@ export default function PrecisionTab() {
                                     ['1 - 5', '0', '4'],
                                     ['6 - 10', '1', '3'],
                                     ['11 - 15', '2', '2'],
-                                    ['16 - 19', '3', '1'],
-                                    ['20', '1 letal + rolagem de finalização (exceto eagle e taurus)', '0'],
+                                    ['16 - 18', '3', '1'],
+                                    ['19 - 20', '4', '0'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -198,10 +198,11 @@ export default function PrecisionTab() {
                                     <Text style={styles.cell}>Erros (Balas Perdida)</Text>
                                 </View>
                                 {[
-                                    ['1 - 5', '0', '6'],
-                                    ['6 - 10', '2', '4'],
-                                    ['11 - 15', '3', '3'],
-                                    ['16 - 19', '4', '2'],
+                                    ['1 - 5', '0', '4'],
+                                    ['6 - 9', '1', '3'],
+                                    ['10 - 14', '2', '2'],
+                                    ['15 - 17', '3', '1'],
+                                    ['18 - 19', '4', '0'],
                                     ['20', '1 Fatal', '0'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
@@ -245,12 +246,12 @@ export default function PrecisionTab() {
                                     <Text style={styles.cell}>Erros (Balas Perdida)</Text>
                                 </View>
                                 {[
-                                    ['1 - 5', '0', '8'],
-                                    ['6 - 9', '2', '6'],
-                                    ['10 - 14', '4', '5'],
-                                    ['15 - 17', '5', '3'],
-                                    ['18 - 19', '6', '2'],
-                                    ['20', '1 Fatal (HS)', '0'],
+                                    ['1 - 5', '0', '6'],
+                                    ['6 - 9', '2', '4'],
+                                    ['10 - 14', '3', '3'],
+                                    ['15 - 17', '5', '1'],
+                                    ['18 - 19', '6', '0'],
+                                    ['20', '1 Fatal', '0'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -292,11 +293,12 @@ export default function PrecisionTab() {
                                     <Text style={styles.cell}>Erros (Balas Perdida)</Text>
                                 </View>
                                 {[
-                                    ['1 - 5', '0', '10'],
-                                    ['6 - 10', '5', '5'],
-                                    ['11 - 15', '6', '4'],
-                                    ['16 - 19', '8', '2'],
-                                    ['20', '10', '0'],
+                                    ['1 - 5', '0', '12'],
+                                    ['6 - 9', '5', '7'],
+                                    ['10 - 14', '8', '4'],
+                                    ['15 - 17', '10', '2'],
+                                    ['18 - 19', '12', '0'],
+                                    ['20', '13', '0'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -309,12 +311,12 @@ export default function PrecisionTab() {
                                 </View>
 
                                 {[
-                                    ['1 - 5', '0', '16'],
-                                    ['6 - 9', '5', '11'],
-                                    ['10 - 15', '7', '9'],
-                                    ['16 - 17', '9', '7'],
-                                    ['18 - 19', '11', '5'],
-                                    ['20', '16', '0'],
+                                    ['1 - 5', '0', '11'],
+                                    ['6 - 9', '5', '6'],
+                                    ['10 - 15', '7', '4'],
+                                    ['16 - 17', '9', '2'],
+                                    ['18 - 19', '11', '0'],
+                                    ['20', '14', '0'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -384,10 +386,10 @@ export default function PrecisionTab() {
                                     <Text style={styles.cell}>Erros (Balas Perdida)</Text>
                                 </View>
                                 {[
-                                    ['1 - 9', '0', '1'],
-                                    ['10 - 16', '1 tiro  |  D/2', '0'],
-                                    ['17 - 19', '1 tiro letal', '0'],
-                                    ['20', '1 Fatal (HS)', '0'],
+                                    ['1 - 9', '0', '0'],
+                                    ['10 - 16', '1 | D/2', '0'],
+                                    ['17 - 19', '1', '0'],
+                                    ['20', '1 Fatal', '0'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -401,9 +403,9 @@ export default function PrecisionTab() {
 
                                 {[
                                     ['1 - 8', '0', '1'],
-                                    ['9 - 13', '1 Tiro / 2', '0'],
-                                    ['14 - 16', '1 Tiro letal', '0'],
-                                    ['17 - 20', '1 Tiro fatal', '0'],
+                                    ['9 - 13', '1 | D/2', '0'],
+                                    ['14 - 16', '1', '0'],
+                                    ['17 - 20', '1 fatal', '0'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -446,11 +448,12 @@ export default function PrecisionTab() {
                                     <Text style={styles.cell}>Erros (Balas Perdida)</Text>
                                 </View>
                                 {[
-                                    ['1 - 5', '0', '3'],
-                                    ['6 - 10', '1', '2'],
-                                    ['11 - 15', '2', '1'],
-                                    ['16 - 19', '3', '0'],
-                                    ['20', '4', '0'],
+                                    ['1 - 5', '0', '4'],
+                                    ['6 - 9', '1', '3'],
+                                    ['10 - 14', '2', '2'],
+                                    ['15 - 16', '3', '1'],
+                                    ['17 - 19', '4', '0'],
+                                    ['20', '1 fatal', '0'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
@@ -493,8 +496,8 @@ export default function PrecisionTab() {
                                     <Text style={styles.cell}>Resultado</Text>
                                 </View>
                                 {[
-                                    ['0 - 12m', 'Sem sucesso'],
-                                    ['13 - 20m', 'Sucesso'],
+                                    ['0 - 15', 'Sem sucesso'],
+                                    ['15 - 20', 'Sucesso'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
                                         {row.map((cell, i) => (
