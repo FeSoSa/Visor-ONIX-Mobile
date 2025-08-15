@@ -218,7 +218,7 @@ export default function WeaponTab() {
                                     ['Tipo de Calibre', 'Médio'],
                                     ['Dano base', '3'],
                                     ['Penetração', 'Média'],
-                                    ['Capacidade do Cartucho', '8 balas'],
+                                    ['Capacidade do Cartucho', '9 balas'],
                                     ['Disparo', 'Semi-automático'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
@@ -272,7 +272,7 @@ export default function WeaponTab() {
                                     ['Tipo de Calibre', 'Pesado'],
                                     ['Dano base', '35'],
                                     ['Penetração', 'Alta'],
-                                    ['Capacidade do Cartucho', '5 balas'],
+                                    ['Capacidade do Cartucho', '7 balas'],
                                     ['Disparo', 'Único'],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
@@ -297,7 +297,7 @@ export default function WeaponTab() {
                                 </View>
                                 {[
                                     ['Tipo de Calibre', 'Pesado'],
-                                    ['Dano base', '7'],
+                                    ['Dano base', '8'],
                                     ['Penetração', 'Média'],
                                     ['Capacidade do Cartucho', '7 balas'],
                                     ['Disparo', 'Semi-Automático'],
@@ -323,10 +323,10 @@ export default function WeaponTab() {
                                     <Text style={styles.cell}>Valor</Text>
                                 </View>
                                 {[
-                                    ['Tipo de Calibre', 'Médio'],
+                                    ['Tipo de Calibre', 'Leve'],
                                     ['Dano base', '3'],
                                     ['Penetração', 'Médio'],
-                                    ['Capacidade do Cartucho', '25 balas'],
+                                    ['Capacidade do Cartucho', '35 balas'],
                                     ['Disparo', 'Automático '],
                                 ].map((row, index) => (
                                     <View key={index} style={styles.rowTable}>
@@ -405,7 +405,7 @@ export default function WeaponTab() {
                                 </View>
                                 {[
                                     ['Tipo de Calibre', 'Tambor'],
-                                    ['Dano base', '8'],
+                                    ['Dano base', '9'],
                                     ['Penetração', 'Média'],
                                     ['Capacidade', '12 cartuchos'],
                                     ['Disparo', 'Dispersão'],
